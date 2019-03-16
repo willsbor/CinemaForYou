@@ -6,6 +6,21 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AB4E2019223D3B2100F43F27 /* SystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2017223D3B2100F43F27 /* SystemProvider.swift */; };
+		AB4E201A223D3B2100F43F27 /* SystemCapability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2018223D3B2100F43F27 /* SystemCapability.swift */; };
+		AB4E2020223D3B4500F43F27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB4E201C223D3B4500F43F27 /* Assets.xcassets */; };
+		AB4E2021223D3B4500F43F27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E201D223D3B4500F43F27 /* AppDelegate.swift */; };
+		AB4E202D223D3BDC00F43F27 /* MovieDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2029223D3BDC00F43F27 /* MovieDatabaseManager.swift */; };
+		AB4E202E223D3BDC00F43F27 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E202A223D3BDC00F43F27 /* MainApp.swift */; };
+		AB4E202F223D3BDC00F43F27 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E202B223D3BDC00F43F27 /* UserManager.swift */; };
+		AB4E2030223D3BDC00F43F27 /* BookingMovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E202C223D3BDC00F43F27 /* BookingMovieManager.swift */; };
+		AB4E2036223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2032223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift */; };
+		AB4E2037223D3BEB00F43F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4E2033223D3BEB00F43F27 /* Main.storyboard */; };
+		AB4E2038223D3BEB00F43F27 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2035223D3BEB00F43F27 /* MovieDetailViewController.swift */; };
+		AB4E203F223D3C0B00F43F27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4E203D223D3C0B00F43F27 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		AB4E1FF6223CA43000F43F27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -19,6 +34,19 @@
 /* Begin PBXFileReference section */
 		AB4E1FE1223CA42E00F43F27 /* DiscoverMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiscoverMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB4E1FF5223CA43000F43F27 /* DiscoverMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiscoverMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB4E2017223D3B2100F43F27 /* SystemProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemProvider.swift; sourceTree = "<group>"; };
+		AB4E2018223D3B2100F43F27 /* SystemCapability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemCapability.swift; sourceTree = "<group>"; };
+		AB4E201C223D3B4500F43F27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB4E201D223D3B4500F43F27 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AB4E201E223D3B4500F43F27 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB4E2029223D3BDC00F43F27 /* MovieDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDatabaseManager.swift; sourceTree = "<group>"; };
+		AB4E202A223D3BDC00F43F27 /* MainApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
+		AB4E202B223D3BDC00F43F27 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		AB4E202C223D3BDC00F43F27 /* BookingMovieManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingMovieManager.swift; sourceTree = "<group>"; };
+		AB4E2032223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverMovieTableTableViewController.swift; sourceTree = "<group>"; };
+		AB4E2034223D3BEB00F43F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB4E2035223D3BEB00F43F27 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		AB4E203E223D3C0B00F43F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +88,14 @@
 		AB4E1FE3223CA42E00F43F27 /* DiscoverMovie */ = {
 			isa = PBXGroup;
 			children = (
+				AB4E2031223D3BEB00F43F27 /* View */,
+				AB4E2028223D3BDC00F43F27 /* MainApp */,
+				AB4E2040223D6E4D00F43F27 /* Manager */,
 				AB4E200C223CD21100F43F27 /* Foundation */,
+				AB4E201D223D3B4500F43F27 /* AppDelegate.swift */,
+				AB4E201C223D3B4500F43F27 /* Assets.xcassets */,
+				AB4E203D223D3C0B00F43F27 /* LaunchScreen.storyboard */,
+				AB4E201E223D3B4500F43F27 /* Info.plist */,
 			);
 			path = DiscoverMovie;
 			sourceTree = "<group>";
@@ -75,8 +110,38 @@
 		AB4E200C223CD21100F43F27 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				AB4E2018223D3B2100F43F27 /* SystemCapability.swift */,
+				AB4E2017223D3B2100F43F27 /* SystemProvider.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		AB4E2028223D3BDC00F43F27 /* MainApp */ = {
+			isa = PBXGroup;
+			children = (
+				AB4E202A223D3BDC00F43F27 /* MainApp.swift */,
+			);
+			path = MainApp;
+			sourceTree = "<group>";
+		};
+		AB4E2031223D3BEB00F43F27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AB4E2032223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift */,
+				AB4E2033223D3BEB00F43F27 /* Main.storyboard */,
+				AB4E2035223D3BEB00F43F27 /* MovieDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AB4E2040223D6E4D00F43F27 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				AB4E202B223D3BDC00F43F27 /* UserManager.swift */,
+				AB4E2029223D3BDC00F43F27 /* MovieDatabaseManager.swift */,
+				AB4E202C223D3BDC00F43F27 /* BookingMovieManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +194,7 @@
 				TargetAttributes = {
 					AB4E1FE0223CA42E00F43F27 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					AB4E1FF4223CA43000F43F27 = {
 						CreatedOnToolsVersion = 10.1;
@@ -160,6 +226,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB4E2020223D3B4500F43F27 /* Assets.xcassets in Resources */,
+				AB4E203F223D3C0B00F43F27 /* LaunchScreen.storyboard in Resources */,
+				AB4E2037223D3BEB00F43F27 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +246,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB4E2030223D3BDC00F43F27 /* BookingMovieManager.swift in Sources */,
+				AB4E2021223D3B4500F43F27 /* AppDelegate.swift in Sources */,
+				AB4E202D223D3BDC00F43F27 /* MovieDatabaseManager.swift in Sources */,
+				AB4E202E223D3BDC00F43F27 /* MainApp.swift in Sources */,
+				AB4E2036223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift in Sources */,
+				AB4E202F223D3BDC00F43F27 /* UserManager.swift in Sources */,
+				AB4E201A223D3B2100F43F27 /* SystemCapability.swift in Sources */,
+				AB4E2038223D3BEB00F43F27 /* MovieDetailViewController.swift in Sources */,
+				AB4E2019223D3B2100F43F27 /* SystemProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +274,25 @@
 			targetProxy = AB4E1FF6223CA43000F43F27 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AB4E2033223D3BEB00F43F27 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB4E2034223D3BEB00F43F27 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AB4E203D223D3C0B00F43F27 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB4E203E223D3C0B00F43F27 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AB4E1FFC223CA43000F43F27 /* Debug */ = {
@@ -318,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DiscoverMovie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -326,6 +424,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.willsbor.DiscoverMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,6 +434,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DiscoverMovie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -351,6 +451,7 @@
 		AB4E2002223CA43000F43F27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DiscoverMovieTests/Info.plist;
@@ -370,6 +471,7 @@
 		AB4E2003223CA43000F43F27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DiscoverMovieTests/Info.plist;

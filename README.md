@@ -108,14 +108,14 @@ class DiscoveryStatus {
 }
 
 enum DiscoverySortType {
-  byReleaseDate
+  releaseDate
 }
 
 class MainApp << (S,#FF7700) Singleton >> {
   +movieDiscoverProvider: MovieDiscovering
   +movieBookProvider: MovieBooking
   +user: User
-  +focusMovie: MovieItem
+  +focusMovie: MovieItem?
 
   +discoverySort: DiscoverySortType
   +discoveryStatus: DiscoveryStatus?
@@ -130,15 +130,15 @@ MainApp *--> "0..1" DiscoveryStatus
 MainApp *--> "1" DiscoverySortType
 
 class MovieDatabaseManager
-class MDMovieDataObject
+class MovieData
 class BookingMovieManager
 class MainUser
 
 MovieDatabaseManager .up.|> MovieDiscovering
 BookingMovieManager .up.|> MovieBooking
 MainUser .up.|> User
-MovieDatabaseManager ..> MDMovieDataObject
-MDMovieDataObject .up.|> MovieItem
+MovieDatabaseManager +-down- MovieData
+MovieData .up.|> MovieItem
 
 ```
 
@@ -158,7 +158,7 @@ MainApp ..|> MovieDetailControlling
 
 MovieItem ..|> MovieDisplayDetail
 MovieItem ..|> MovieDisplayAbstract
-MDMovieDataObject ..|> MovieItem
+MovieData ..|> MovieItem
 
 ```
 
