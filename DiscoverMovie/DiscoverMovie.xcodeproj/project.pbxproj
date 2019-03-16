@@ -24,6 +24,8 @@
 		AB4E2044223D75A600F43F27 /* SystemCapability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2018223D3B2100F43F27 /* SystemCapability.swift */; };
 		AB4E2045223D75A600F43F27 /* SystemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2017223D3B2100F43F27 /* SystemProvider.swift */; };
 		AB4E2047223D75C900F43F27 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2046223D75C900F43F27 /* TestUtils.swift */; };
+		AB4E2049223D77E400F43F27 /* BookingMovieManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2048223D77E400F43F27 /* BookingMovieManagerTests.swift */; };
+		AB4E204A223D77E700F43F27 /* BookingMovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E202C223D3BDC00F43F27 /* BookingMovieManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,7 @@
 		AB4E203E223D3C0B00F43F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB4E2041223D755300F43F27 /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
 		AB4E2046223D75C900F43F27 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
+		AB4E2048223D77E400F43F27 /* BookingMovieManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingMovieManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 			children = (
 				AB4E2046223D75C900F43F27 /* TestUtils.swift */,
 				AB4E2041223D755300F43F27 /* UserManagerTests.swift */,
+				AB4E2048223D77E400F43F27 /* BookingMovieManagerTests.swift */,
 			);
 			path = DiscoverMovieTests;
 			sourceTree = "<group>";
@@ -272,8 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB4E204A223D77E700F43F27 /* BookingMovieManager.swift in Sources */,
 				AB4E2043223D757000F43F27 /* UserManager.swift in Sources */,
 				AB4E2042223D755300F43F27 /* UserManagerTests.swift in Sources */,
+				AB4E2049223D77E400F43F27 /* BookingMovieManagerTests.swift in Sources */,
 				AB4E2044223D75A600F43F27 /* SystemCapability.swift in Sources */,
 				AB4E2047223D75C900F43F27 /* TestUtils.swift in Sources */,
 				AB4E2045223D75A600F43F27 /* SystemProvider.swift in Sources */,
