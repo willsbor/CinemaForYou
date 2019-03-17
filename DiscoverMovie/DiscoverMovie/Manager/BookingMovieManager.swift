@@ -12,12 +12,8 @@ class BookingMovieManager {
     
     typealias Result = URL
     
-    func bookMovie(_ lang: String, _ region: String, _ completionHandler: @escaping (Result) -> Void) {
-        let url = getURL(by: lang, with: region)
-        
-        DispatchQueue.global().async {
-            completionHandler(url)
-        }
+    func bookMovie(_ lang: String, _ region: String) -> URL {
+        return getURL(by: lang, with: region)
     }
     
     private func getURL(by lang: String, with region: String) -> URL {

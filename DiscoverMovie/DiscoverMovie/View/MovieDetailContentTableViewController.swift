@@ -75,7 +75,7 @@ extension MovieDisplayDetail {
         case 1:
             return ("Title", title)
         case 2:
-            return ("Popularity", popularity)
+            return ("Popularity", "\(popularity)")
         case 3:
             return ("Synopsis", synopsis)
         case 4:

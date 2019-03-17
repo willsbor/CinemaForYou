@@ -13,7 +13,7 @@ protocol MovieDisplayDetail {
     var posterImage: URL? { get }
     var backdropImage: URL? { get }
     var title: String { get }
-    var popularity: String { get }
+    var popularity: Double { get }
     var synopsis: String { get }
     var genres: String { get }
     var language: String { get }

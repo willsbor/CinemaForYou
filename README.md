@@ -35,7 +35,7 @@ interface MovieDisplayAbstract {
   +posterImage: URL?
   +backdropImage: URL?
   +title: String
-  +popularity: String
+  +popularity: Double
 }
 
 enum MovieChangeType {
@@ -97,7 +97,7 @@ interface MovieDiscovering {
   +discoverMoviesNextState(User, DiscoverySortType, DiscoveryStatus?, handler)
 }
 interface MovieBooking {
-  +bookMovie(User, MovieItem, handler)
+  +bookMovie(User, MovieItem)
 }
 interface User {
   +region
@@ -105,7 +105,6 @@ interface User {
 }
 
 interface MovieItem {
-
 }
 
 class DiscoveryStatus {

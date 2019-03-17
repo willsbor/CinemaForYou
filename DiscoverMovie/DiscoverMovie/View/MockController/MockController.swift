@@ -16,14 +16,14 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
         let posterImage: URL?
         let backdropImage: URL?
         let title: String
-        let popularity: String
+        let popularity: Double
         
         let synopsis: String
         let genres: String
         let language: String
         let duration: String
         
-        init(posterImage: URL?, backdropImage: URL?, title: String, popularity: String) {
+        init(posterImage: URL?, backdropImage: URL?, title: String, popularity: Double) {
             self.posterImage = posterImage
             self.backdropImage = backdropImage
             self.title = title
@@ -41,23 +41,23 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
         MovieItem(posterImage: URL(string: "https://image.tmdb.org/t/p/w500/vELsvyKySjI05znoNfB4gknfLf4.jpg1")!,
                   backdropImage: URL(string: "https://image.tmdb.org/t/p/w500/w2PMyoyLU22YvrGK3smVM9fW1jj.jpg1")!,
                   title: "惊奇队长 (Captain Marvel)",
-                  popularity: "585.976"),
+                  popularity: 585.976),
         MovieItem(posterImage: URL(string: "https://image.tmdb.org/t/p/w500/vELsvyKySjI05znoNfB4gknfLf4.jpg")!,
                   backdropImage: URL(string: "https://image.tmdb.org/t/p/w500/w2PMyoyLU22YvrGK3smVM9fW1jj.jpg")!,
                   title: "惊奇队长 (Captain Marvel)",
-                  popularity: "585.976"),
+                  popularity: 585.976),
         MovieItem(posterImage: URL(string: "https://image.tmdb.org/t/p/w500/vELsvyKySjI05znoNfB4gknfLf4.jpg")!,
                   backdropImage: URL(string: "https://image.tmdb.org/t/p/w500/w2PMyoyLU22YvrGK3smVM9fW1jj.jpg")!,
                   title: "惊奇队长 (Captain Marvel)",
-                  popularity: "585.976"),
+                  popularity: 585.976),
         MovieItem(posterImage: URL(string: "https://image.tmdb.org/t/p/w500/vELsvyKySjI05znoNfB4gknfLf4.jpg")!,
                   backdropImage: URL(string: "https://image.tmdb.org/t/p/w500/w2PMyoyLU22YvrGK3smVM9fW1jj.jpg")!,
                   title: "惊奇队长 (Captain Marvel)",
-                  popularity: "585.976"),
+                  popularity: 585.976),
         MovieItem(posterImage: URL(string: "https://image.tmdb.org/t/p/w500/vELsvyKySjI05znoNfB4gknfLf4.jpg")!,
                   backdropImage: URL(string: "https://image.tmdb.org/t/p/w500/w2PMyoyLU22YvrGK3smVM9fW1jj.jpg")!,
                   title: "惊奇队长 (Captain Marvel)",
-                  popularity: "585.976"),
+                  popularity: 585.976),
         ]
     
     var focusMovie: MovieItem?
@@ -102,15 +102,15 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
             MovieItem(posterImage: URL(string: "https://image.tmdb.org/t/p/w500/vELsvyKySjI05znoNfB4gknfLf4.jpg")!,
                       backdropImage: URL(string: "https://image.tmdb.org/t/p/w500/w2PMyoyLU22YvrGK3smVM9fW1jj.jpg")!,
                       title: "惊奇队长 (Captain Marvel)",
-                      popularity: "585.976"),
+                      popularity: 585.976),
             MovieItem(posterImage: URL(string: "https://image.tmdb.org/t/p/w500/vELsvyKySjI05znoNfB4gknfLf4.jpg")!,
                       backdropImage: URL(string: "https://image.tmdb.org/t/p/w500/w2PMyoyLU22YvrGK3smVM9fW1jj.jpg")!,
                       title: "惊奇队长 (Captain Marvel)",
-                      popularity: "585.976"),
+                      popularity: 585.976),
             MovieItem(posterImage: URL(string: "https://image.tmdb.org/t/p/w500/vELsvyKySjI05znoNfB4gknfLf4.jpg")!,
                       backdropImage: URL(string: "https://image.tmdb.org/t/p/w500/w2PMyoyLU22YvrGK3smVM9fW1jj.jpg")!,
                       title: "惊奇队长 (Captain Marvel)",
-                      popularity: "585.976"),
+                      popularity: 585.976),
             ]
         
         systemUtils.dispatchAfter(3000) {
