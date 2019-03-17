@@ -26,4 +26,9 @@ class SystemProvider {
     func currentDate() -> Date {
         return Date()
     }
+    
+    func dispatchAfter(_ milliseconds: Int, _ handler: @escaping () -> Void) {
+        let t = DispatchTime.now() + .milliseconds(milliseconds)
+        DispatchQueue.global().asyncAfter(deadline: t, execute: handler)
+    }
 }

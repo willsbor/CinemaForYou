@@ -30,6 +30,7 @@ protocol SystemUtils {
     func getRegion() -> String
     func getLanguage() -> String
     func currentDate() -> Date
+    func dispatchAfter(_ milliseconds: Int, _ handler: @escaping () -> Void)
 }
 
 extension SystemProvider: SystemUtils {}

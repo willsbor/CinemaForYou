@@ -171,13 +171,14 @@ skinparam classAttributeIconSize 0
 class SystemProvider << (S,#FF7700) Singleton >>
 
 interface SystemUtils {
-  +getRegion()
-  +getLanguage()
-  +currentDate()
+  +getRegion() -> String
+  +getLanguage() -> String
+  +currentDate() -> Date
+  +dispatchAfter(_ milliseconds: Int, _ handler: @escaping () -> Void)
 }
 
 abstract SystemCapability {
-
+  +systemUtils: SystemUtils
 }
 
 SystemProvider .up.|> SystemUtils
