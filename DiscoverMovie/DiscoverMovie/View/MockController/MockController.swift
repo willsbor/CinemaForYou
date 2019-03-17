@@ -118,28 +118,25 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
             let oldItems = self.movies
             self.movies.append(contentsOf: newItems)
             
-            DispatchQueue.main.async {
-                self.discoverDelegate?.begin()
-                
-                self.discoverDelegate?.movieDataDidChange(indexes: [oldItems.count], type: .replace)
-                
-                var insertIndexes: [Int] = []
-                
-                let start = oldItems.count + 1
-                let end = oldItems.count + newItems.count - 1
-                if start < end {
-                    for i in start...end {
-                        insertIndexes.append(i)
-                    }
+            self.discoverDelegate?.begin()
+            
+            self.discoverDelegate?.movieDataDidChange(indexes: [oldItems.count], type: .replace)
+            
+            var insertIndexes: [Int] = []
+            
+            let start = oldItems.count + 1
+            let end = oldItems.count + newItems.count - 1
+            if start < end {
+                for i in start...end {
+                    insertIndexes.append(i)
                 }
-                
-                insertIndexes.append(oldItems.count + newItems.count) //< .finial or .elseLeft
-                
-                self.discoverDelegate?.movieDataDidChange(indexes: insertIndexes, type: .insert)
-                
-                self.discoverDelegate?.end()
             }
             
+            insertIndexes.append(oldItems.count + newItems.count) //< .finial or .elseLeft
+            
+            self.discoverDelegate?.movieDataDidChange(indexes: insertIndexes, type: .insert)
+            
+            self.discoverDelegate?.end()
             
             self.isRequestingMoreMovies = false
         }

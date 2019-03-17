@@ -51,11 +51,23 @@ class MovieDetailViewController: UIViewController, SFSafariViewControllerDelegat
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: 0.2) {
+            self.backdropImageView.alpha = 0.3
+        }
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         if self.isMovingFromParent {
             controller.defocusMovie()
+            
+            UIView.animate(withDuration: 0.2) {
+                self.backdropImageView.alpha = 0
+            }
         }
     }
     

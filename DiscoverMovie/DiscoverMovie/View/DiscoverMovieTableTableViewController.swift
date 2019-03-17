@@ -164,23 +164,28 @@ class DiscoverMovieTableViewController: UITableViewController {
 
 extension DiscoverMovieTableViewController: MoviesChangeDelegate {
     func begin() {
-        self.tableView.beginUpdates()
+        DispatchQueue.main.async {
+            self.tableView.beginUpdates()
+        }
     }
     
     func movieDataDidChange(indexes: [Int], type: MovieChangeType) {
-        switch type {
-        case .insert:
-            self.tableView.insertRows(at: indexes.map { IndexPath(row: $0, section: 0) }, with: .automatic)
-        case .replace:
-            self.tableView.reloadRows(at: indexes.map { IndexPath(row: $0, section: 0) }, with: .automatic)
-        case .delete:
-            self.tableView.deleteRows(at: indexes.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+        DispatchQueue.main.async {
+            switch type {
+            case .insert:
+                self.tableView.insertRows(at: indexes.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+            case .replace:
+                self.tableView.reloadRows(at: indexes.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+            case .delete:
+                self.tableView.deleteRows(at: indexes.map { IndexPath(row: $0, section: 0) }, with: .automatic)
+            }
         }
-        
         print("\(type): \(indexes)")
     }
     
     func end() {
-        self.tableView.endUpdates()
+        DispatchQueue.main.async {
+            self.tableView.endUpdates()
+        }
     }
 }
