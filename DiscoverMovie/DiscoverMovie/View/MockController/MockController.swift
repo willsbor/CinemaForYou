@@ -8,15 +8,31 @@
 
 import Foundation
 
-class MockController: DiscoverMovieControlling, SystemCapability {
+class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailControlling {
     
     static let shared = MockController()
     
-    struct MovieItem: MovieDisplayAbstract {
+    struct MovieItem: MovieDisplayAbstract, MovieDisplayDetail {
         let posterImage: URL?
         let backdropImage: URL?
         let title: String
         let popularity: String
+        
+        let synopsis: String
+        let genres: String
+        let language: String
+        let duration: String
+        
+        init(posterImage: URL?, backdropImage: URL?, title: String, popularity: String) {
+            self.posterImage = posterImage
+            self.backdropImage = backdropImage
+            self.title = title
+            self.popularity = popularity
+            self.synopsis = ""
+            self.genres = ""
+            self.language = ""
+            self.duration = ""
+        }
     }
     
     var discoverDelegate: MoviesChangeDelegate? = nil
@@ -128,6 +144,18 @@ class MockController: DiscoverMovieControlling, SystemCapability {
     }
     
     func focusMovie(_ movieAbstract: MovieDisplayAbstract) {
+        
+    }
+    
+    func getFocusMovieDetail() -> MovieDisplayDetail {
+        return movies.first!
+    }
+    
+    func bookingFocusMove() {
+        
+    }
+    
+    func defocusMovie() {
         
     }
 }
