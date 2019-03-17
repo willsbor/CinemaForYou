@@ -22,7 +22,7 @@ protocol MovieDisplayDetail {
 
 protocol MovieDetailControlling {
     func getFocusMovieDetail() -> MovieDisplayDetail?
-    func getBookingFocusMoveURL() -> URL
+    func getBookingFocusMovieURL() -> URL
     func defocusMovie()
 }
 
@@ -60,7 +60,7 @@ class MovieDetailViewController: UIViewController, SFSafariViewControllerDelegat
     }
     
     @objc func clickBookMovie() {
-        let safariVC = SFSafariViewController(url: controller.getBookingFocusMoveURL())
+        let safariVC = SFSafariViewController(url: controller.getBookingFocusMovieURL())
         safariVC.delegate = self
         self.present(safariVC, animated: true, completion: nil)
     }
