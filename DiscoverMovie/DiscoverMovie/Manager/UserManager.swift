@@ -9,5 +9,11 @@
 import Foundation
 
 class UserManager: SystemCapability {
-
+    private(set) var currentRegion: String = "undef"
+    private(set) var currentLanguage: String = "undef"
+    
+    func createUser() {
+        currentRegion = systemUtils.getRegion()
+        currentLanguage = "\(systemUtils.getLanguage())-\(currentRegion)"
+    }
 }
