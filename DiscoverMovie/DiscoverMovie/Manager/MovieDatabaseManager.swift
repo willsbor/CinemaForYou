@@ -165,6 +165,7 @@ class MovieDatabaseManager {
         }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        print("Debug: \(url)")
         
         let task = urlSession.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -235,6 +236,7 @@ class MovieDatabaseManager {
         }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        print("Debug: \(url)")
         
         let task = urlSession.dataTask(with: request) { (data, response, error) in
             if let error = error {
