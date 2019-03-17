@@ -60,6 +60,8 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
                   popularity: "585.976"),
         ]
     
+    var focusMovie: MovieItem?
+    
     var isFinial: Bool {
         return false
     }
@@ -143,15 +145,16 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
         }
     }
     
-    func focusMovie(_ movieAbstract: MovieDisplayAbstract) {
-        
+    func focusMovie(_ index: Int) {
+        focusMovie = movies[index]
     }
     
     func getFocusMovieDetail() -> MovieDisplayDetail? {
-        return movies.first
+        return focusMovie
     }
     
     func defocusMovie() {
+        focusMovie = nil
     }
         
     func getBookingFocusMoveURL() -> URL {

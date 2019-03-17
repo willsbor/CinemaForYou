@@ -39,7 +39,7 @@ protocol DiscoverMovieControlling: class {
     func getMovie(by index: Int) -> MovieResultType
     func refreshMovies(_ completionHandler: @escaping () -> Void)
     func requestMoreMovies()
-    func focusMovie(_ movieAbstract: MovieDisplayAbstract)
+    func focusMovie(_ index: Int)
 }
 
 class DiscoverMovieTableViewController: UITableViewController {
@@ -100,9 +100,9 @@ class DiscoverMovieTableViewController: UITableViewController {
         let movieType = controller.getMovie(by: indexPath.row)
         
         switch movieType {
-        case .normal(let info):
-            controller.focusMovie(info)
-            performSegue(withIdentifier: "showMovieDetail", sender: info)
+        case .normal:
+            controller.focusMovie(indexPath.row)
+            performSegue(withIdentifier: "showMovieDetail", sender: nil)
             
         case .elseLeft, .finial:
             tableView.deselectRow(at: indexPath, animated: true)
