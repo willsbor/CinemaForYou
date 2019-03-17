@@ -96,11 +96,11 @@ class MovieDatabaseManager {
         var title: String
         var originalTitle: String
         var popularity: Double
-        var overview: String
+        var overview: String?
         var genres: [Genres]
         var originalLanguage: String
         var spokenLanguages: [SpokenLanguage]
-        var runtime: Int
+        var runtime: Int?
         
         enum CodingKeys: String, CodingKey {
             case id
