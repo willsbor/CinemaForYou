@@ -51,6 +51,8 @@ class DiscoverMovieTableViewController: UITableViewController {
         
         controller.discoverDelegate = self
         
+        self.title = "Discovery Movies"
+        
         self.refreshControl = UIRefreshControl()
     }
 
