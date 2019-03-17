@@ -12,11 +12,15 @@ class SystemProvider {
     static let shared = SystemProvider()
     
     func getRegion() -> String {
-        return "TW"
+        let locale = Locale.current
+        let countryCode = locale.regionCode
+        return countryCode!
     }
     
     func getLanguage() -> String {
-        return "zh-TW"
+        let langID = Locale.preferredLanguages.first ?? "en"
+        let locale = Locale(identifier: langID)
+        return locale.languageCode!
     }
     
     func currentDate() -> Date {
