@@ -20,19 +20,34 @@ protocol MovieDisplayDetail {
 }
 
 protocol MovieDetailControlling {
-    func getFocusMovieDetail() -> MovieDisplayDetail
     func bookingFocusMove()
+    func getFocusMovieDetail() -> MovieDisplayDetail?
     func defocusMovie()
 }
 
 class MovieDetailViewController: UIViewController {
 
+    @IBOutlet weak var backdropImageView: UIImageView!
+    @IBOutlet weak var backdropImageVConstraint: NSLayoutConstraint!
+    
     var controller: MovieDetailControlling = MockController.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Book me", style: .plain, target: self, action: #selector(clickBookMovie))
+        
+        backdropImageView.alpha = 0.3
+        
+        let item = controller.getFocusMovieDetail()
+        if let url = item?.backdropImage {
+            _ = ImageManager.shared.loadImageURL(url) { (data) in
+                guard let data = data else { return }
+                DispatchQueue.main.async {
+                    self.backdropImageView.image = UIImage(data: data)
+                }
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,7 +68,11 @@ class MovieDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "ContentTable":
-            (segue.destination as! MovieDetailContentTableViewController).controller = controller
+            let vc = (segue.destination as! MovieDetailContentTableViewController)
+            vc.controller = controller
+            vc.scrollViewDidScrollHandler = { (contentOffset) in
+                self.backdropImageVConstraint.constant = -(contentOffset.y / 5.0)
+            }
 
         default:
             assertionFailure("?? \(String(describing: segue.identifier))")

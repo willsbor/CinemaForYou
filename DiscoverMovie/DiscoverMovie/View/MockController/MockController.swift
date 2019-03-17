@@ -28,7 +28,7 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
             self.backdropImage = backdropImage
             self.title = title
             self.popularity = popularity
-            self.synopsis = ""
+            self.synopsis = "漫画中的初代“惊奇女士”原名Carol Danvers，她曾经是一名美国空军情报局探员，暗恋惊奇先生。此后她得到了超能力，成为“惊奇女士”，在漫画中是非常典型的女性英雄人物。她可以吸收并控制任意形态的能量，拥有众多超能力。《惊奇队长》将是漫威首部以女性超级英雄为主角的电影。"
             self.genres = ""
             self.language = ""
             self.duration = ""
@@ -38,8 +38,8 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
     var discoverDelegate: MoviesChangeDelegate? = nil
     
     var movies: [MovieItem] = [
-        MovieItem(posterImage: URL(string: "https://image.tmdb.org/t/p/w500/vELsvyKySjI05znoNfB4gknfLf4.jpg")!,
-                  backdropImage: URL(string: "https://image.tmdb.org/t/p/w500/w2PMyoyLU22YvrGK3smVM9fW1jj.jpg")!,
+        MovieItem(posterImage: URL(string: "https://image.tmdb.org/t/p/w500/vELsvyKySjI05znoNfB4gknfLf4.jpg1")!,
+                  backdropImage: URL(string: "https://image.tmdb.org/t/p/w500/w2PMyoyLU22YvrGK3smVM9fW1jj.jpg1")!,
                   title: "惊奇队长 (Captain Marvel)",
                   popularity: "585.976"),
         MovieItem(posterImage: URL(string: "https://image.tmdb.org/t/p/w500/vELsvyKySjI05znoNfB4gknfLf4.jpg")!,
@@ -147,8 +147,8 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
         
     }
     
-    func getFocusMovieDetail() -> MovieDisplayDetail {
-        return movies.first!
+    func getFocusMovieDetail() -> MovieDisplayDetail? {
+        return focusMovie
     }
     
     func bookingFocusMove() {

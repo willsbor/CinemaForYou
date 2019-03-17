@@ -11,6 +11,7 @@ import UIKit
 class MovieDetailContentTableViewController: UITableViewController {
 
     var controller: MovieDetailControlling! = nil
+    var scrollViewDidScrollHandler: ((_ contentOffset: CGPoint) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,18 +35,18 @@ class MovieDetailContentTableViewController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PosterCell", for: indexPath) as! MovieDetailPosterCell
             
-            #warning("TODO: image async load / cache")
-            if let url = movie.posterImage {
-                cell.posterImageView.image = UIImage(data: try! Data(contentsOf: url))
+            if let url = movie?.posterImage {
+                cell.loadPosterImage(url)
             }
             
             return cell
         case 1...6:
-            let (title, content) = movie.getTitleContent(indexPath.row)
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell", for: indexPath) as! MovieDetailContentCell
             
-            cell.titleLabel.text = title
-            cell.contentLabel.text = content
+            if let (title, content) = movie?.getTitleContent(indexPath.row) {
+                cell.titleLabel.text = title
+                cell.contentLabel.text = content
+            }
             
             return cell
             
@@ -53,17 +54,19 @@ class MovieDetailContentTableViewController: UITableViewController {
             preconditionFailure("undefined")
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 250.0
+        default:
+            return 44.0
+        }
     }
-    */
 
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollViewDidScrollHandler?(scrollView.contentOffset)
+    }
 }
 
 extension MovieDisplayDetail {

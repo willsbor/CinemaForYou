@@ -14,6 +14,9 @@ class MovieDisplayAbstractCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
     
+    var posterImageViewTask: URLSessionTask?
+    var backdropImageViewTask: URLSessionTask?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -40,6 +43,45 @@ class MovieDisplayAbstractCell: UITableViewCell {
         popularityLabel.layer.shadowRadius = 10.0
         popularityLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
         popularityLabel.layer.shadowOpacity = 1.0
+        
+        placeholderForImageView()
     }
     
+    func loadPosterImage(_ url: URL) {
+        posterImageViewTask?.cancel()
+        posterImageViewTask = ImageManager.shared.loadImageURL(url) { (data) in
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                self.posterImageView.image = UIImage(data: data)
+                self.posterImageViewTask = nil
+            }
+        }
+    }
+    
+    func loadBackdropImage(_ url: URL) {
+        backdropImageViewTask?.cancel()
+        backdropImageViewTask = ImageManager.shared.loadImageURL(url) { (data) in
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                self.backdropImageView.image = UIImage(data: data)
+                self.backdropImageViewTask = nil
+            }
+        }
+    }
+    
+    override func prepareForReuse() {
+        backdropImageViewTask?.cancel()
+        backdropImageViewTask = nil
+        posterImageViewTask?.cancel()
+        posterImageViewTask = nil
+        
+        placeholderForImageView()
+        
+        super.prepareForReuse()
+    }
+    
+    private func placeholderForImageView() {
+        backdropImageView.image = UIImage.from(color: UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0))
+        posterImageView.image = UIImage.from(color: UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0))
+    }
 }

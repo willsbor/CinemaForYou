@@ -76,12 +76,11 @@ class DiscoverMovieTableViewController: UITableViewController {
         case .normal(let info):
             let cell = tableView.dequeueReusableCell(withIdentifier: "defaultCell", for: indexPath) as! MovieDisplayAbstractCell
             
-            #warning("TODO: image async load / cache")
-            if let url = info.backdropImage {
-                cell.backdropImageView.image = UIImage(data: try! Data(contentsOf: url))
-            }
             if let url = info.posterImage {
-                cell.posterImageView.image = UIImage(data: try! Data(contentsOf: url))
+                cell.loadPosterImage(url)
+            }
+            if let url = info.backdropImage {
+                cell.loadBackdropImage(url)
             }
             
             cell.titleLabel.text = info.title
