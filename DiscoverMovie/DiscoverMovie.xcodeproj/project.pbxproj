@@ -26,6 +26,11 @@
 		AB4E2047223D75C900F43F27 /* TestUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2046223D75C900F43F27 /* TestUtils.swift */; };
 		AB4E2049223D77E400F43F27 /* BookingMovieManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2048223D77E400F43F27 /* BookingMovieManagerTests.swift */; };
 		AB4E204A223D77E700F43F27 /* BookingMovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E202C223D3BDC00F43F27 /* BookingMovieManager.swift */; };
+		AB4E204C223DE0FE00F43F27 /* MovieDatabaseManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E204B223DE0FE00F43F27 /* MovieDatabaseManagerTests.swift */; };
+		AB4E204D223DE10400F43F27 /* MovieDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2029223D3BDC00F43F27 /* MovieDatabaseManager.swift */; };
+		AB4E2050223DEF7000F43F27 /* DiscoverResult200-1.json in Resources */ = {isa = PBXBuildFile; fileRef = AB4E204F223DEF7000F43F27 /* DiscoverResult200-1.json */; };
+		AB4E2052223DF29500F43F27 /* DiscoverResult401-1.json in Resources */ = {isa = PBXBuildFile; fileRef = AB4E2051223DF29500F43F27 /* DiscoverResult401-1.json */; };
+		AB4E205B223DF55700F43F27 /* DiscoverResult404-1.json in Resources */ = {isa = PBXBuildFile; fileRef = AB4E205A223DF55700F43F27 /* DiscoverResult404-1.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,10 @@
 		AB4E2041223D755300F43F27 /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
 		AB4E2046223D75C900F43F27 /* TestUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUtils.swift; sourceTree = "<group>"; };
 		AB4E2048223D77E400F43F27 /* BookingMovieManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingMovieManagerTests.swift; sourceTree = "<group>"; };
+		AB4E204B223DE0FE00F43F27 /* MovieDatabaseManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDatabaseManagerTests.swift; sourceTree = "<group>"; };
+		AB4E204F223DEF7000F43F27 /* DiscoverResult200-1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "DiscoverResult200-1.json"; sourceTree = "<group>"; };
+		AB4E2051223DF29500F43F27 /* DiscoverResult401-1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "DiscoverResult401-1.json"; sourceTree = "<group>"; };
+		AB4E205A223DF55700F43F27 /* DiscoverResult404-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "DiscoverResult404-1.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,9 +122,11 @@
 		AB4E1FF8223CA43000F43F27 /* DiscoverMovieTests */ = {
 			isa = PBXGroup;
 			children = (
+				AB4E204E223DEF3400F43F27 /* Resource */,
 				AB4E2046223D75C900F43F27 /* TestUtils.swift */,
 				AB4E2041223D755300F43F27 /* UserManagerTests.swift */,
 				AB4E2048223D77E400F43F27 /* BookingMovieManagerTests.swift */,
+				AB4E204B223DE0FE00F43F27 /* MovieDatabaseManagerTests.swift */,
 			);
 			path = DiscoverMovieTests;
 			sourceTree = "<group>";
@@ -155,6 +166,16 @@
 				AB4E202C223D3BDC00F43F27 /* BookingMovieManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		AB4E204E223DEF3400F43F27 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				AB4E204F223DEF7000F43F27 /* DiscoverResult200-1.json */,
+				AB4E2051223DF29500F43F27 /* DiscoverResult401-1.json */,
+				AB4E205A223DF55700F43F27 /* DiscoverResult404-1.json */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +271,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB4E2050223DEF7000F43F27 /* DiscoverResult200-1.json in Resources */,
+				AB4E205B223DF55700F43F27 /* DiscoverResult404-1.json in Resources */,
+				AB4E2052223DF29500F43F27 /* DiscoverResult401-1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +305,9 @@
 				AB4E2042223D755300F43F27 /* UserManagerTests.swift in Sources */,
 				AB4E2049223D77E400F43F27 /* BookingMovieManagerTests.swift in Sources */,
 				AB4E2044223D75A600F43F27 /* SystemCapability.swift in Sources */,
+				AB4E204C223DE0FE00F43F27 /* MovieDatabaseManagerTests.swift in Sources */,
 				AB4E2047223D75C900F43F27 /* TestUtils.swift in Sources */,
+				AB4E204D223DE10400F43F27 /* MovieDatabaseManager.swift in Sources */,
 				AB4E2045223D75A600F43F27 /* SystemProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
