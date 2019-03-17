@@ -39,6 +39,8 @@
 		AB4E206A223E4C4400F43F27 /* MovieDetailContentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2069223E4C4400F43F27 /* MovieDetailContentTableViewController.swift */; };
 		AB4E206C223E713900F43F27 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E206B223E713900F43F27 /* ImageManager.swift */; };
 		AB4E2070223E912900F43F27 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E206F223E912900F43F27 /* UIImage.swift */; };
+		AB4E2072223E9EE100F43F27 /* MainApp+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2071223E9EE100F43F27 /* MainApp+Shared.swift */; };
+		AB4E2074223EA21B00F43F27 /* MainApp+ViewControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2073223EA21B00F43F27 /* MainApp+ViewControlling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		AB4E2069223E4C4400F43F27 /* MovieDetailContentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailContentTableViewController.swift; sourceTree = "<group>"; };
 		AB4E206B223E713900F43F27 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		AB4E206F223E912900F43F27 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		AB4E2071223E9EE100F43F27 /* MainApp+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainApp+Shared.swift"; sourceTree = "<group>"; };
+		AB4E2073223EA21B00F43F27 /* MainApp+ViewControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainApp+ViewControlling.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				AB4E202A223D3BDC00F43F27 /* MainApp.swift */,
+				AB4E2071223E9EE100F43F27 /* MainApp+Shared.swift */,
+				AB4E2073223EA21B00F43F27 /* MainApp+ViewControlling.swift */,
 			);
 			path = MainApp;
 			sourceTree = "<group>";
@@ -327,10 +333,12 @@
 				AB4E2068223E4BAA00F43F27 /* MovieDetailContentCell.swift in Sources */,
 				AB4E202F223D3BDC00F43F27 /* UserManager.swift in Sources */,
 				AB4E201A223D3B2100F43F27 /* SystemCapability.swift in Sources */,
+				AB4E2074223EA21B00F43F27 /* MainApp+ViewControlling.swift in Sources */,
 				AB4E206A223E4C4400F43F27 /* MovieDetailContentTableViewController.swift in Sources */,
 				AB4E206C223E713900F43F27 /* ImageManager.swift in Sources */,
 				AB4E205D223E24A200F43F27 /* MovieDisplayAbstractCell.swift in Sources */,
 				AB4E2038223D3BEB00F43F27 /* MovieDetailViewController.swift in Sources */,
+				AB4E2072223E9EE100F43F27 /* MainApp+Shared.swift in Sources */,
 				AB4E205F223E362700F43F27 /* MovieLoadingCell.swift in Sources */,
 				AB4E2019223D3B2100F43F27 /* SystemProvider.swift in Sources */,
 			);
