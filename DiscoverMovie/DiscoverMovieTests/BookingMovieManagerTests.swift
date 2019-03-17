@@ -22,42 +22,21 @@ class BookingMovieManagerTests: XCTestCase {
 
     func testBookMovieByRegion1() {
         
-        var resultURL: URL?
-        let expect = expectation(description: "wait for book a movie")
-        bookingManager.bookMovie("zh-US", "US") { (url) in
-            resultURL = url
-            expect.fulfill()
-        }
-        
-        wait(for: [expect], timeout: 3)
+        let resultURL: URL? = bookingManager.bookMovie("zh-US", "US")
         
         XCTAssertEqual(resultURL, URL(string: "https://www.cathaycineplexes.com.sg/")!)
     }
     
     func testBookMovieByRegion2() {
         
-        var resultURL: URL?
-        let expect = expectation(description: "wait for book a movie")
-        bookingManager.bookMovie("en-US", "US") { (url) in
-            resultURL = url
-            expect.fulfill()
-        }
-        
-        wait(for: [expect], timeout: 3)
+        let resultURL: URL? = bookingManager.bookMovie("en-US", "US")
         
         XCTAssertEqual(resultURL, URL(string: "https://www.cathaycineplexes.com.sg/")!)
     }
     
     func testBookMovieByRegion3() {
         
-        var resultURL: URL?
-        let expect = expectation(description: "wait for book a movie")
-        bookingManager.bookMovie("zh-TW", "TW") { (url) in
-            resultURL = url
-            expect.fulfill()
-        }
-        
-        wait(for: [expect], timeout: 3)
+        let resultURL: URL? = bookingManager.bookMovie("zh-TW", "TW")
         
         XCTAssertEqual(resultURL, URL(string: "https://www.cathaycineplexes.com.sg/")!)
     }
