@@ -8,7 +8,14 @@
 
 import Foundation
 
-typealias MovieItem = MovieDatabaseManager.MovieData
+class MovieItem {
+    var info: MovieDatabaseManager.MovieData
+    var detail: MovieDatabaseManager.MovieDetailData?
+    
+    init(_ info: MovieDatabaseManager.MovieData) {
+        self.info = info
+    }
+}
 
 struct DiscoveryStatus {
     let totalPages: Int
@@ -16,8 +23,9 @@ struct DiscoveryStatus {
     let currentPage: Int
 }
 
-protocol MovieDiscovering {
+protocol MovieDatabase {
     func discoverMoviesNextPage(_ user: User, _ type: DiscoverySortType, _ status: DiscoveryStatus?, _ completionHandler: @escaping (DiscoveryStatus, [MovieItem]) -> Void)
+    func detailMovie(_ movieItem: MovieItem, _ user: User, _ completionHandler: @escaping (MovieItem) -> Void)
 }
 
 protocol MovieBooking {
@@ -34,7 +42,7 @@ enum DiscoverySortType {
 }
 
 class MainApp {
-    let movieDiscoverProvider: MovieDiscovering
+    let movieDiscoverProvider: MovieDatabase
     let movieBookProvider: MovieBooking
     let currentUser: User
     
@@ -49,7 +57,7 @@ class MainApp {
     private let lockQueue = DispatchQueue(label: "com.xxx.main_app.lock")
     private var requestingDiscoverMovies = false
     
-    init(_ movieDiscoverProvider: MovieDiscovering,
+    init(_ movieDiscoverProvider: MovieDatabase,
          _ movieBookProvider: MovieBooking,
          _ currentUser: User) {
         
@@ -70,6 +78,16 @@ class MainApp {
     
     func defocusMovie() {
         focusMovie = nil
+    }
+    
+    func requestFocusMovieDetail(_ completionHandler: @escaping () -> Void) {
+        guard let focusMovie = focusMovie else {
+            preconditionFailure()
+        }
+        
+        movieDiscoverProvider.detailMovie(focusMovie, currentUser) { (item) in
+            completionHandler()
+        }
     }
     
     func requestDiscoverMoviesFromFirstPage(_ completionHandler: @escaping (_ sendRequest: Bool, _ items: [MovieItem]) -> Void) {

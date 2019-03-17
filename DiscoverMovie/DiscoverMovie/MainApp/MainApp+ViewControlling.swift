@@ -85,41 +85,52 @@ extension MainApp: DiscoverMovieControlling, MovieDetailControlling {
 }
 
 extension MovieItem: MovieDisplayAbstract, MovieDisplayDetail {
+    var title: String {
+        return "\(info.title) (\(info.originalTitle))"
+    }
+    
+    var popularity: Double {
+        return info.popularity
+    }
+    
     var posterImage: URL? {
-        guard let path = posterPath else {
-            print("posterPath of \(id) is nil")
+        guard let path = info.posterPath else {
+            print("posterPath of \(info.id) is nil")
             return nil
         }
         var url = URL(string: "https://image.tmdb.org/t/p/w500")
         url?.appendPathComponent(path)
-        print("p: \(url!)")
         return url
     }
     
     var backdropImage: URL? {
-        guard let path = backdropPath else {
-            print("backdropPath of \(id) is nil")
+        guard let path = info.backdropPath else {
+            print("backdropPath of \(info.id) is nil")
             return nil
         }
         var url = URL(string: "https://image.tmdb.org/t/p/w500")
         url?.appendPathComponent(path)
-        print("b: \(url!)")
         return url
     }
     
     var synopsis: String {
-        return "TODO: synopsis"
+        return detail?.overview ?? "<null>"
     }
     
     var genres: String {
-        return "TODO: genres"
+        return detail?.genres.map { $0.name }.joined(separator: ", ") ?? "<null>"
     }
     
     var language: String {
-        return "TODO: language"
+        return "original: \(detail?.originalLanguage ?? "<null>")\nspoken: \(detail?.spokenLanguages.map { $0.name }.joined(separator: ", ") ?? "<null>")"
     }
     
     var duration: String {
-        return "TODO: duration"
+        if let runtime = detail?.runtime {
+            return "\(runtime) mins"
+        } else {
+            return "<null>"
+        }
+        
     }
 }
