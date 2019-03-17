@@ -17,29 +17,36 @@ class DiscoverMovieTableViewController {
 }
 
 interface DiscoverMovieControlling {
-    +dataDelegate: MoviesChangeDelegate
-    +currentMovies() -> [MovieResultType]
-    +refreshMovies()
-    +requestMoreMovies()
-    +focusMovie()
+  +discoverDelegate: MoviesChangeDelegate?
+  +currentMovies() -> [MovieResultType]
+  +getMovie(by index: Int) -> MovieResultType
+  +refreshMovies(_ completionHandler: @escaping () -> Void)
+  +requestMoreMovies()
+  +focusMovie(_ movieAbstract: MovieDisplayAbstract)
 }
 
 enum MovieResultType {
   normal{MovieDisplayAbstract}
-  hasMore
-  lastOne
+  elseLeft
+  finial
 }
 
 interface MovieDisplayAbstract {
-  +posterImage
-  +backdropImage
-  +title
-  +popularity
+  +posterImage: URL?
+  +backdropImage: URL?
+  +title: String
+  +popularity: String
+}
+
+enum MovieChangeType {
+    insert
+    replace
+    delete
 }
 
 interface MoviesChangeDelegate {
   +begin()
-  +movieDataDidChange(index, MovieDisplayAbstract)
+  +movieDataDidChange(indexes: [Int], type: MovieChangeType)
   +end()
 }
 
@@ -70,7 +77,7 @@ DiscoverMovieTableViewController *--> "1" DiscoverMovieControlling
 DiscoverMovieControlling .left.> MovieResultType
 MovieResultType --> MovieDisplayAbstract
 DiscoverMovieControlling --> "1" MoviesChangeDelegate : delegate
-MoviesChangeDelegate ..> MovieResultType
+MoviesChangeDelegate ..> MovieChangeType
 
 DiscoverMovieTableViewController ..|> MoviesChangeDelegate
 

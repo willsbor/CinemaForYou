@@ -31,6 +31,9 @@
 		AB4E2050223DEF7000F43F27 /* DiscoverResult200-1.json in Resources */ = {isa = PBXBuildFile; fileRef = AB4E204F223DEF7000F43F27 /* DiscoverResult200-1.json */; };
 		AB4E2052223DF29500F43F27 /* DiscoverResult401-1.json in Resources */ = {isa = PBXBuildFile; fileRef = AB4E2051223DF29500F43F27 /* DiscoverResult401-1.json */; };
 		AB4E205B223DF55700F43F27 /* DiscoverResult404-1.json in Resources */ = {isa = PBXBuildFile; fileRef = AB4E205A223DF55700F43F27 /* DiscoverResult404-1.json */; };
+		AB4E205D223E24A200F43F27 /* MovieDisplayAbstractCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E205C223E24A200F43F27 /* MovieDisplayAbstractCell.swift */; };
+		AB4E205F223E362700F43F27 /* MovieLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E205E223E362700F43F27 /* MovieLoadingCell.swift */; };
+		AB4E2062223E42C800F43F27 /* MockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2061223E42C800F43F27 /* MockController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,9 @@
 		AB4E204F223DEF7000F43F27 /* DiscoverResult200-1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "DiscoverResult200-1.json"; sourceTree = "<group>"; };
 		AB4E2051223DF29500F43F27 /* DiscoverResult401-1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "DiscoverResult401-1.json"; sourceTree = "<group>"; };
 		AB4E205A223DF55700F43F27 /* DiscoverResult404-1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "DiscoverResult404-1.json"; sourceTree = "<group>"; };
+		AB4E205C223E24A200F43F27 /* MovieDisplayAbstractCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDisplayAbstractCell.swift; sourceTree = "<group>"; };
+		AB4E205E223E362700F43F27 /* MovieLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLoadingCell.swift; sourceTree = "<group>"; };
+		AB4E2061223E42C800F43F27 /* MockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,9 +157,12 @@
 		AB4E2031223D3BEB00F43F27 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AB4E2032223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift */,
+				AB4E2060223E42A200F43F27 /* MockController */,
 				AB4E2033223D3BEB00F43F27 /* Main.storyboard */,
+				AB4E2032223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift */,
 				AB4E2035223D3BEB00F43F27 /* MovieDetailViewController.swift */,
+				AB4E205C223E24A200F43F27 /* MovieDisplayAbstractCell.swift */,
+				AB4E205E223E362700F43F27 /* MovieLoadingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,6 +185,14 @@
 				AB4E205A223DF55700F43F27 /* DiscoverResult404-1.json */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		AB4E2060223E42A200F43F27 /* MockController */ = {
+			isa = PBXGroup;
+			children = (
+				AB4E2061223E42C800F43F27 /* MockController.swift */,
+			);
+			path = MockController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,13 +302,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB4E2030223D3BDC00F43F27 /* BookingMovieManager.swift in Sources */,
+				AB4E2062223E42C800F43F27 /* MockController.swift in Sources */,
 				AB4E2021223D3B4500F43F27 /* AppDelegate.swift in Sources */,
 				AB4E202D223D3BDC00F43F27 /* MovieDatabaseManager.swift in Sources */,
 				AB4E202E223D3BDC00F43F27 /* MainApp.swift in Sources */,
 				AB4E2036223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift in Sources */,
 				AB4E202F223D3BDC00F43F27 /* UserManager.swift in Sources */,
 				AB4E201A223D3B2100F43F27 /* SystemCapability.swift in Sources */,
+				AB4E205D223E24A200F43F27 /* MovieDisplayAbstractCell.swift in Sources */,
 				AB4E2038223D3BEB00F43F27 /* MovieDetailViewController.swift in Sources */,
+				AB4E205F223E362700F43F27 /* MovieLoadingCell.swift in Sources */,
 				AB4E2019223D3B2100F43F27 /* SystemProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
