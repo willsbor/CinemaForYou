@@ -31,7 +31,7 @@ class MovieDetailViewController: UIViewController, SFSafariViewControllerDelegat
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var backdropImageVConstraint: NSLayoutConstraint!
     
-    var controller: MovieDetailControlling = MockController.shared
+    lazy var controller: MovieDetailControlling = MainApp.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()

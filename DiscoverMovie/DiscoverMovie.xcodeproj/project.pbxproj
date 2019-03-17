@@ -32,7 +32,6 @@
 		AB4E205B223DF55700F43F27 /* DiscoverResult404-1.json in Resources */ = {isa = PBXBuildFile; fileRef = AB4E205A223DF55700F43F27 /* DiscoverResult404-1.json */; };
 		AB4E205D223E24A200F43F27 /* MovieDisplayAbstractCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E205C223E24A200F43F27 /* MovieDisplayAbstractCell.swift */; };
 		AB4E205F223E362700F43F27 /* MovieLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E205E223E362700F43F27 /* MovieLoadingCell.swift */; };
-		AB4E2062223E42C800F43F27 /* MockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2061223E42C800F43F27 /* MockController.swift */; };
 		AB4E2064223E45E800F43F27 /* DiscoverMovieTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2063223E45E800F43F27 /* DiscoverMovieTableTableViewController.swift */; };
 		AB4E2066223E4B9800F43F27 /* MovieDetailPosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2065223E4B9800F43F27 /* MovieDetailPosterCell.swift */; };
 		AB4E2068223E4BAA00F43F27 /* MovieDetailContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2067223E4BAA00F43F27 /* MovieDetailContentCell.swift */; };
@@ -324,7 +323,6 @@
 			files = (
 				AB4E2030223D3BDC00F43F27 /* BookingMovieManager.swift in Sources */,
 				AB4E2066223E4B9800F43F27 /* MovieDetailPosterCell.swift in Sources */,
-				AB4E2062223E42C800F43F27 /* MockController.swift in Sources */,
 				AB4E2021223D3B4500F43F27 /* AppDelegate.swift in Sources */,
 				AB4E202D223D3BDC00F43F27 /* MovieDatabaseManager.swift in Sources */,
 				AB4E2064223E45E800F43F27 /* DiscoverMovieTableTableViewController.swift in Sources */,

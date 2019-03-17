@@ -44,7 +44,7 @@ protocol DiscoverMovieControlling: class {
 
 class DiscoverMovieTableViewController: UITableViewController {
 
-    let controller: DiscoverMovieControlling = MockController.shared
+    lazy var controller: DiscoverMovieControlling = MainApp.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
