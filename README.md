@@ -55,8 +55,9 @@ class MovieDetailViewController {
 }
 
 interface MovieDetailControlling {
-  +getFocusMovieDetail() -> MovieDisplayDetail
-  +bookingFocusMove()
+  +requestFocusMovieDetail(_ completionHandler: @escaping () -> Void)
+  +getFocusMovieDetail() -> MovieDisplayDetail?
+  +getBookingFocusMovieURL() -> URL
   +defocusMovie()
 }
 
@@ -93,18 +94,19 @@ MainApp is the master of all. It owns the business rules. I design the neccessar
 ```puml
 skinparam classAttributeIconSize 0
 
-interface MovieDiscovering {
+interface MovieDatabase {
   +discoverMoviesNextState(User, DiscoverySortType, DiscoveryStatus?, handler)
+  +detailMovie(_ movieItem: MovieItem, _ user: User, _ completionHandler: @escaping (MovieItem) -> Void)
 }
 interface MovieBooking {
-  +bookMovie(User, MovieItem)
+  +bookMovie(_ user: User, _ movieItem: MovieItem) -> URL
 }
 interface User {
   +region
   +language
 }
 
-interface MovieItem {
+class MovieItem {
 }
 
 class DiscoveryStatus {
@@ -118,7 +120,7 @@ enum DiscoverySortType {
 }
 
 class MainApp << (S,#FF7700) Singleton >> {
-  +movieDiscoverProvider: MovieDiscovering
+  +movieDiscoverProvider: MovieDatabase
   +movieBookProvider: MovieBooking
   +user: User
   +focusMovie: MovieItem?
@@ -129,7 +131,7 @@ class MainApp << (S,#FF7700) Singleton >> {
 }
 
 MainApp *--> "1" User
-MainApp *--> "1" MovieDiscovering
+MainApp *--> "1" MovieDatabase
 MainApp *--> "1" MovieBooking
 MainApp *--> "many" MovieItem
 MainApp *--> "0..1" DiscoveryStatus
@@ -137,14 +139,17 @@ MainApp *--> "1" DiscoverySortType
 
 class MovieDatabaseManager
 class MovieData
+class MovieDetailData
 class BookingMovieManager
 class MainUser
 
-MovieDatabaseManager .up.|> MovieDiscovering
+MovieDatabaseManager .up.|> MovieDatabase
 BookingMovieManager .up.|> MovieBooking
 MainUser .up.|> User
-MovieDatabaseManager +-down- MovieData
-MovieData .up.|> MovieItem
+MovieDatabaseManager +-- MovieData
+MovieDatabaseManager +-- MovieDetailData
+MovieData <-- MovieItem
+MovieDetailData <-- MovieItem
 
 ```
 
@@ -155,7 +160,7 @@ skinparam classAttributeIconSize 0
 
 interface DiscoverMovieControlling
 interface MovieDetailControlling
-interface MovieItem
+class MovieItem
 interface MovieDisplayDetail
 interface MovieDisplayAbstract
 
@@ -164,7 +169,7 @@ MainApp ..|> MovieDetailControlling
 
 MovieItem ..|> MovieDisplayDetail
 MovieItem ..|> MovieDisplayAbstract
-MovieData ..|> MovieItem
+
 
 ```
 
