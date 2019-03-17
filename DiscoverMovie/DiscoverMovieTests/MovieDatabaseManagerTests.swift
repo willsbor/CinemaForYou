@@ -68,7 +68,7 @@ class MovieDatabaseManagerTests: XCTestCase {
         
         /// When
         let expect = expectation(description: "wait for discovery")
-        var result: MovieDatabaseManager.Result!
+        var result: MovieDatabaseManager.Result<MovieDatabaseManager.DiscoverResult>!
         movieDatabaseManager.discoverMovies(sort, page, lang, region) { (r) in
             result = r
             expect.fulfill()
@@ -100,7 +100,7 @@ class MovieDatabaseManagerTests: XCTestCase {
         
         /// When
         let expect = expectation(description: "wait for discovery")
-        var result: MovieDatabaseManager.Result!
+        var result: MovieDatabaseManager.Result<MovieDatabaseManager.DiscoverResult>!
         movieDatabaseManager.discoverMovies(sort, page, lang, region) { (r) in
             result = r
             expect.fulfill()
@@ -132,7 +132,7 @@ class MovieDatabaseManagerTests: XCTestCase {
         
         /// When
         let expect = expectation(description: "wait for discovery")
-        var result: MovieDatabaseManager.Result!
+        var result: MovieDatabaseManager.Result<MovieDatabaseManager.DiscoverResult>!
         movieDatabaseManager.discoverMovies(sort, page, lang, region) { (r) in
             result = r
             expect.fulfill()
@@ -149,6 +149,46 @@ class MovieDatabaseManagerTests: XCTestCase {
         case .success, .status401, .failed:
             XCTFail()
         }
+    }
+    
+    func testMovieDetail() {
+        /// Given
+        let (answer, responseBody): (MovieDatabaseManager.MovieDetailData, Data) = makeFakeDiscoverResult("DetailResult200-1")
+        MockURLProtocol.responseBody = responseBody
+        MockURLProtocol.responseStatusCode = 200
+        let movieID = 299537
+        let lang = "zh-TW"
+        
+        /// When
+        let expect = expectation(description: "wait for discovery")
+        var result: MovieDatabaseManager.Result<MovieDatabaseManager.MovieDetailData>!
+        movieDatabaseManager.movieDetail(movieID, lang, { (r) in
+            result = r
+            expect.fulfill()
+        })
+        wait(for: [expect], timeout: 3)
+        
+        /// Then
+        assertInputDiscoverRequest(movieID, lang)
+        
+        switch result! {
+        case .success(let data):
+            XCTAssertEqual(data, answer)
+            XCTAssertEqual(data.id, movieID)
+        case .status401, .status404, .failed:
+            XCTFail()
+        }
+    }
+    
+    private func assertInputDiscoverRequest(_ movieID: Int, _ lang: String) {
+        XCTAssertEqual(MockURLProtocol.inputRequest!.httpMethod, "GET")
+        let resultComponent = URLComponents(url: MockURLProtocol.inputRequest!.url!, resolvingAgainstBaseURL: false)!
+        
+        XCTAssertTrue(resultComponent.path.hasSuffix("/\(movieID)"))
+        
+        XCTAssertEqual(resultComponent.queryItems!.count, 2)
+        XCTAssertTrue(resultComponent.queryItems!.contains(where: { $0.name == "language" && $0.value == "\(lang)" }))
+        XCTAssertTrue(resultComponent.queryItems!.contains(where: { $0.name == "api_key" && $0.value == movieDatabaseManager.appKey }))
     }
     
     private func assertInputDiscoverRequest(_ sort: MovieDatabaseManager.SortType, _ page: Int, _ lang: String, _ region: String) {

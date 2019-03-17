@@ -40,6 +40,7 @@
 		AB4E2070223E912900F43F27 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E206F223E912900F43F27 /* UIImage.swift */; };
 		AB4E2072223E9EE100F43F27 /* MainApp+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2071223E9EE100F43F27 /* MainApp+Shared.swift */; };
 		AB4E2074223EA21B00F43F27 /* MainApp+ViewControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2073223EA21B00F43F27 /* MainApp+ViewControlling.swift */; };
+		AB4E2076223EC20C00F43F27 /* DetailResult200-1.json in Resources */ = {isa = PBXBuildFile; fileRef = AB4E2075223EC20C00F43F27 /* DetailResult200-1.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		AB4E206F223E912900F43F27 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		AB4E2071223E9EE100F43F27 /* MainApp+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainApp+Shared.swift"; sourceTree = "<group>"; };
 		AB4E2073223EA21B00F43F27 /* MainApp+ViewControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainApp+ViewControlling.swift"; sourceTree = "<group>"; };
+		AB4E2075223EC20C00F43F27 /* DetailResult200-1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "DetailResult200-1.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				AB4E204F223DEF7000F43F27 /* DiscoverResult200-1.json */,
 				AB4E2051223DF29500F43F27 /* DiscoverResult401-1.json */,
 				AB4E205A223DF55700F43F27 /* DiscoverResult404-1.json */,
+				AB4E2075223EC20C00F43F27 /* DetailResult200-1.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB4E2076223EC20C00F43F27 /* DetailResult200-1.json in Resources */,
 				AB4E2050223DEF7000F43F27 /* DiscoverResult200-1.json in Resources */,
 				AB4E205B223DF55700F43F27 /* DiscoverResult404-1.json in Resources */,
 				AB4E2052223DF29500F43F27 /* DiscoverResult401-1.json in Resources */,

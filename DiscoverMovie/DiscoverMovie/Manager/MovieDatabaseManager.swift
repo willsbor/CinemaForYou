@@ -18,8 +18,8 @@ class MovieDatabaseManager {
         case dataInNil
     }
     
-    enum Result {
-        case success(DiscoverResult)
+    enum Result<T> {
+        case success(T)
         case status401(statusCode: Int, statusMessage: String)
         case status404(statusCode: Int, statusMessage: String)
         case failed(Error)
@@ -80,6 +80,43 @@ class MovieDatabaseManager {
         }
     }
     
+    struct MovieDetailData: Codable, Equatable {
+        struct Genres: Codable, Equatable {
+            var id: Int
+            var name: String
+        }
+        struct SpokenLanguage: Codable, Equatable {
+            var iso_639_1: String
+            var name: String
+        }
+        
+        var id: Int
+        var posterPath: String?
+        var backdropPath: String?
+        var title: String
+        var originalTitle: String
+        var popularity: Double
+        var overview: String
+        var genres: [Genres]
+        var originalLanguage: String
+        var spokenLanguages: [SpokenLanguage]
+        var runtime: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case posterPath = "poster_path"
+            case backdropPath = "backdrop_path"
+            case title
+            case originalTitle = "original_title"
+            case popularity
+            case overview
+            case genres
+            case originalLanguage = "original_language"
+            case spokenLanguages = "spoken_languages"
+            case runtime
+        }
+    }
+    
     struct FailedResult: Decodable, Equatable {
         var statusMessage: String
         var statusCode: Int
@@ -92,6 +129,7 @@ class MovieDatabaseManager {
     
     private enum ServiceEndPoint: String {
         case discoverMovie = "discover/movie"
+        case movieDetail = "movie"
     }
     
     let appKey = "0015d20b3f7005f8aec145f45a71ad00"
@@ -103,7 +141,74 @@ class MovieDatabaseManager {
         urlSession = URLSession(configuration: sessionConfiguration)
     }
     
-    func discoverMovies(_ sort: SortType, _ page: Int, _ lang: String, _ region: String, _ completionHandler: @escaping (Result) -> Void) {
+    func movieDetail(_ movieID: Int, _ lang: String, _ completionHandler: @escaping (Result<MovieDetailData>) -> Void) {
+        assert(lang.isMatch("^[a-z]{2}-[A-Z]{2}$"), "lang format is invalid. (spec: https://developers.themoviedb.org/3/movies/get-movie-details)")
+        
+        let detailURL = makeURL(.movieDetail).appendingPathComponent("\(movieID)")
+        
+        guard var components = URLComponents(url: detailURL, resolvingAgainstBaseURL: false) else {
+            DispatchQueue.global().async {
+//                completionHandler(.failed(Errors.createURLComponentsFailed))
+            }
+            return
+        }
+        components.queryItems = [
+            URLQueryItem(name: "language", value: lang),
+            URLQueryItem(name: "api_key", value: appKey),
+        ]
+        
+        guard let url = components.url else {
+            DispatchQueue.global().async {
+                completionHandler(.failed(Errors.createRequestFailed))
+            }
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let task = urlSession.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completionHandler(.failed(error))
+                return
+            }
+            
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode else {
+                completionHandler(.failed(Errors.statusCodeInvalid))
+                return
+            }
+            
+            do {
+                switch statusCode {
+                case 200:
+                    guard let result = try data?.toMovieDetailData() else {
+                        throw Errors.dataInNil
+                    }
+                    completionHandler(.success(result))
+                    
+                case 401:
+                    guard let (code, message) = try data?.toStatusCodeAndMessage() else {
+                        throw Errors.dataInNil
+                    }
+                    completionHandler(.status401(statusCode: code, statusMessage: message))
+                    
+                case 404:
+                    guard let (code, message) = try data?.toStatusCodeAndMessage() else {
+                        throw Errors.dataInNil
+                    }
+                    completionHandler(.status404(statusCode: code, statusMessage: message))
+                    
+                default:
+                    completionHandler(.failed(Errors.undefinedStatus(statusCode)))
+                }
+            } catch {
+                completionHandler(.failed(error))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func discoverMovies(_ sort: SortType, _ page: Int, _ lang: String, _ region: String, _ completionHandler: @escaping (Result<DiscoverResult>) -> Void) {
         
         assert(region.isMatch("^[A-Z]{2}$"), "region format is invalid. (spec: https://developers.themoviedb.org/3/discover/movie-discover)")
         assert(lang.isMatch("^[a-z]{2}-[A-Z]{2}$"), "lang format is invalid. (spec: https://developers.themoviedb.org/3/discover/movie-discover)")
@@ -188,6 +293,11 @@ extension Data {
         let decoder = JSONDecoder()
         let object = try decoder.decode(MovieDatabaseManager.FailedResult.self, from: self)
         return (object.statusCode, object.statusMessage)
+    }
+    
+    fileprivate func toMovieDetailData() throws -> MovieDatabaseManager.MovieDetailData {
+        let decoder = JSONDecoder()
+        return try decoder.decode(MovieDatabaseManager.MovieDetailData.self, from: self)
     }
 }
 
