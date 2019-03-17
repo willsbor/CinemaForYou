@@ -139,6 +139,13 @@ class DiscoverMovieTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "showMovieDetail":
+            let vc = (segue.destination as! MovieDetailViewController)
+            vc.controller.requestFocusMovieDetail { [weak vc] in
+                DispatchQueue.main.async {
+                    vc?.reloadContent()
+                }
+            }
+            
             break
         default:
             assertionFailure("?? \(String(describing: segue.identifier))")
@@ -151,10 +158,10 @@ class DiscoverMovieTableViewController: UITableViewController {
     override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if let refreshControl = refreshControl {
             if refreshControl.isRefreshing {
-                controller.refreshMovies {
+                controller.refreshMovies { [weak self] in
                     DispatchQueue.main.async {
-                        self.refreshControl?.endRefreshing()
-                        self.tableView.reloadSections([0], with: .automatic)
+                        self?.refreshControl?.endRefreshing()
+                        self?.tableView.reloadSections([0], with: .automatic)
                     }
                 }
             }

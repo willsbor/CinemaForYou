@@ -21,6 +21,7 @@ protocol MovieDisplayDetail {
 }
 
 protocol MovieDetailControlling {
+    func requestFocusMovieDetail(_ completionHandler: @escaping () -> Void)
     func getFocusMovieDetail() -> MovieDisplayDetail?
     func getBookingFocusMovieURL() -> URL
     func defocusMovie()
@@ -32,6 +33,7 @@ class MovieDetailViewController: UIViewController, SFSafariViewControllerDelegat
     @IBOutlet weak var backdropImageVConstraint: NSLayoutConstraint!
     
     lazy var controller: MovieDetailControlling = MainApp.shared
+    private(set) var contentTableVC: MovieDetailContentTableViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,15 +42,7 @@ class MovieDetailViewController: UIViewController, SFSafariViewControllerDelegat
         
         backdropImageView.alpha = 0.3
         
-        let item = controller.getFocusMovieDetail()
-        if let url = item?.backdropImage {
-            _ = ImageManager.shared.loadImageURL(url) { (data) in
-                guard let data = data else { return }
-                DispatchQueue.main.async {
-                    self.backdropImageView.image = UIImage(data: data)
-                }
-            }
-        }
+        loadBackdrop()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,9 +77,9 @@ class MovieDetailViewController: UIViewController, SFSafariViewControllerDelegat
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "ContentTable":
-            let vc = (segue.destination as! MovieDetailContentTableViewController)
-            vc.controller = controller
-            vc.scrollViewDidScrollHandler = { (contentOffset) in
+            contentTableVC = (segue.destination as! MovieDetailContentTableViewController)
+            contentTableVC.controller = controller
+            contentTableVC.scrollViewDidScrollHandler = { (contentOffset) in
                 self.backdropImageVConstraint.constant = -(contentOffset.y / 5.0)
             }
 
@@ -99,6 +93,23 @@ class MovieDetailViewController: UIViewController, SFSafariViewControllerDelegat
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func loadBackdrop() {
+        let item = controller.getFocusMovieDetail()
+        if let url = item?.backdropImage {
+            _ = ImageManager.shared.loadImageURL(url) { (data) in
+                guard let data = data else { return }
+                DispatchQueue.main.async {
+                    self.backdropImageView.image = UIImage(data: data)
+                }
+            }
+        }
+    }
+    
+    func reloadContent() {
+        contentTableVC.tableView.reloadSections([0], with: .automatic)
+        loadBackdrop()
     }
     
 }

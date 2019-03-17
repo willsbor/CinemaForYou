@@ -28,6 +28,7 @@ class MovieDisplayAbstractCell: UITableViewCell {
         posterImageView.layer.shadowOffset = CGSize(width: 2, height: 2)
         posterImageView.layer.shadowOpacity = 1.0
         
+        titleLabel.numberOfLines = 3
         titleLabel.font = UIFont.systemFont(ofSize: 25)
         titleLabel.textColor = UIColor.black
         titleLabel.layer.shadowColor = UIColor.white.cgColor
