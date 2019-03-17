@@ -148,14 +148,13 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
     }
     
     func getFocusMovieDetail() -> MovieDisplayDetail? {
-        return focusMovie
-    }
-    
-    func bookingFocusMove() {
-        
+        return movies.first
     }
     
     func defocusMovie() {
+    }
         
+    func getBookingFocusMoveURL() -> URL {
+        return URL(string: "https://www.cathaycineplexes.com.sg/")!
     }
 }

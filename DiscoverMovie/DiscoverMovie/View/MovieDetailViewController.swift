@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol MovieDisplayDetail {
     var posterImage: URL? { get }
@@ -20,12 +21,12 @@ protocol MovieDisplayDetail {
 }
 
 protocol MovieDetailControlling {
-    func bookingFocusMove()
     func getFocusMovieDetail() -> MovieDisplayDetail?
+    func getBookingFocusMoveURL() -> URL
     func defocusMovie()
 }
 
-class MovieDetailViewController: UIViewController {
+class MovieDetailViewController: UIViewController, SFSafariViewControllerDelegate {
 
     @IBOutlet weak var backdropImageView: UIImageView!
     @IBOutlet weak var backdropImageVConstraint: NSLayoutConstraint!
@@ -59,7 +60,9 @@ class MovieDetailViewController: UIViewController {
     }
     
     @objc func clickBookMovie() {
-        controller.bookingFocusMove()
+        let safariVC = SFSafariViewController(url: controller.getBookingFocusMoveURL())
+        safariVC.delegate = self
+        self.present(safariVC, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
@@ -78,6 +81,12 @@ class MovieDetailViewController: UIViewController {
             assertionFailure("?? \(String(describing: segue.identifier))")
             break
         }
+    }
+    
+    // MARK: - SFSafariViewControllerDelegate
+    
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
 }
