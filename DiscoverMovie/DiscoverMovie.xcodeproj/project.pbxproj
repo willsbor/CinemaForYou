@@ -15,7 +15,6 @@
 		AB4E202E223D3BDC00F43F27 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E202A223D3BDC00F43F27 /* MainApp.swift */; };
 		AB4E202F223D3BDC00F43F27 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E202B223D3BDC00F43F27 /* UserManager.swift */; };
 		AB4E2030223D3BDC00F43F27 /* BookingMovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E202C223D3BDC00F43F27 /* BookingMovieManager.swift */; };
-		AB4E2036223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2032223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift */; };
 		AB4E2037223D3BEB00F43F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4E2033223D3BEB00F43F27 /* Main.storyboard */; };
 		AB4E2038223D3BEB00F43F27 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2035223D3BEB00F43F27 /* MovieDetailViewController.swift */; };
 		AB4E203F223D3C0B00F43F27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4E203D223D3C0B00F43F27 /* LaunchScreen.storyboard */; };
@@ -34,6 +33,7 @@
 		AB4E205D223E24A200F43F27 /* MovieDisplayAbstractCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E205C223E24A200F43F27 /* MovieDisplayAbstractCell.swift */; };
 		AB4E205F223E362700F43F27 /* MovieLoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E205E223E362700F43F27 /* MovieLoadingCell.swift */; };
 		AB4E2062223E42C800F43F27 /* MockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2061223E42C800F43F27 /* MockController.swift */; };
+		AB4E2064223E45E800F43F27 /* DiscoverMovieTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E2063223E45E800F43F27 /* DiscoverMovieTableTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +58,6 @@
 		AB4E202A223D3BDC00F43F27 /* MainApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		AB4E202B223D3BDC00F43F27 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		AB4E202C223D3BDC00F43F27 /* BookingMovieManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingMovieManager.swift; sourceTree = "<group>"; };
-		AB4E2032223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverMovieTableTableViewController.swift; sourceTree = "<group>"; };
 		AB4E2034223D3BEB00F43F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB4E2035223D3BEB00F43F27 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		AB4E203E223D3C0B00F43F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		AB4E205C223E24A200F43F27 /* MovieDisplayAbstractCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDisplayAbstractCell.swift; sourceTree = "<group>"; };
 		AB4E205E223E362700F43F27 /* MovieLoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieLoadingCell.swift; sourceTree = "<group>"; };
 		AB4E2061223E42C800F43F27 /* MockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockController.swift; sourceTree = "<group>"; };
+		AB4E2063223E45E800F43F27 /* DiscoverMovieTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverMovieTableTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +159,7 @@
 			children = (
 				AB4E2060223E42A200F43F27 /* MockController */,
 				AB4E2033223D3BEB00F43F27 /* Main.storyboard */,
-				AB4E2032223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift */,
+				AB4E2063223E45E800F43F27 /* DiscoverMovieTableTableViewController.swift */,
 				AB4E2035223D3BEB00F43F27 /* MovieDetailViewController.swift */,
 				AB4E205C223E24A200F43F27 /* MovieDisplayAbstractCell.swift */,
 				AB4E205E223E362700F43F27 /* MovieLoadingCell.swift */,
@@ -305,8 +305,8 @@
 				AB4E2062223E42C800F43F27 /* MockController.swift in Sources */,
 				AB4E2021223D3B4500F43F27 /* AppDelegate.swift in Sources */,
 				AB4E202D223D3BDC00F43F27 /* MovieDatabaseManager.swift in Sources */,
+				AB4E2064223E45E800F43F27 /* DiscoverMovieTableTableViewController.swift in Sources */,
 				AB4E202E223D3BDC00F43F27 /* MainApp.swift in Sources */,
-				AB4E2036223D3BEB00F43F27 /* DiscoverMovieTableTableViewController.swift in Sources */,
 				AB4E202F223D3BDC00F43F27 /* UserManager.swift in Sources */,
 				AB4E201A223D3B2100F43F27 /* SystemCapability.swift in Sources */,
 				AB4E205D223E24A200F43F27 /* MovieDisplayAbstractCell.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  DiscoverMovieTableTableViewController.swift
+//  DiscoverMovieTableViewController.swift
 //  DiscoverMovie
 //
 //  Created by willsborKang on 2019/3/16.
@@ -42,7 +42,7 @@ protocol DiscoverMovieControlling: class {
     func focusMovie(_ movieAbstract: MovieDisplayAbstract)
 }
 
-class DiscoverMovieTableTableViewController: UITableViewController {
+class DiscoverMovieTableViewController: UITableViewController {
 
     let controller: DiscoverMovieControlling = MockController.shared
     
@@ -161,7 +161,7 @@ class DiscoverMovieTableTableViewController: UITableViewController {
     }
 }
 
-extension DiscoverMovieTableTableViewController: MoviesChangeDelegate {
+extension DiscoverMovieTableViewController: MoviesChangeDelegate {
     func begin() {
         self.tableView.beginUpdates()
     }
