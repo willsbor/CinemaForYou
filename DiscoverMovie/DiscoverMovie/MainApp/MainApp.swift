@@ -12,6 +12,8 @@ class MovieItem {
     var info: MovieDatabaseManager.MovieData
     var detail: MovieDatabaseManager.MovieDetailData?
     
+    var formattedReleaseDate: String?
+    
     init(_ info: MovieDatabaseManager.MovieData) {
         self.info = info
     }
@@ -56,6 +58,7 @@ class MainApp {
     
     private let lockQueue = DispatchQueue(label: "com.xxx.main_app.lock")
     private var requestingDiscoverMovies = false
+    private var dateFormatter = DateFormatter()
     
     init(_ movieDiscoverProvider: MovieDatabase,
          _ movieBookProvider: MovieBooking,
@@ -104,6 +107,9 @@ class MainApp {
             discoveryStatus = nil
             
             movieDiscoverProvider.discoverMoviesNextPage(currentUser, discoverySort, discoveryStatus) { (status, nextMovies) in
+                
+                let nextMovies = self.formatMovieItems(nextMovies)
+                
                 self.lockQueue.sync {
                     self.discoverMovies = nextMovies
                     self.discoveryStatus = status
@@ -117,7 +123,7 @@ class MainApp {
         }
     }
     
-    func requestDiscoverMoviesNextPage(_ completionHandler: @escaping (_ sendRequest: Bool, _ oldItems: [MovieItem], _ newItems: [MovieItem]) -> Void) {
+    func requestDiscoverMoviesNextPage(_ completionHandler: @escaping (_ sendRequest: Bool, _ oldMovies: [MovieItem], _ newItems: [MovieItem]) -> Void) {
         
         lockQueue.sync {
             if requestingDiscoverMovies {
@@ -129,20 +135,41 @@ class MainApp {
             }
             requestingDiscoverMovies = true
             
-            movieDiscoverProvider.discoverMoviesNextPage(currentUser, discoverySort, discoveryStatus) { (status, newItems) in
+            movieDiscoverProvider.discoverMoviesNextPage(currentUser, discoverySort, discoveryStatus) { (status, nextMovies) in
+                
+                let nextMovies = self.formatMovieItems(nextMovies)
+                
                 self.lockQueue.sync {
                     self.discoveryStatus = status
                     
-                    let oldItems = self.discoverMovies
-                    self.discoverMovies.append(contentsOf: newItems)
+                    let oldMovies = self.discoverMovies
+                    self.discoverMovies.append(contentsOf: nextMovies)
                     
                     self.requestingDiscoverMovies = false
                     DispatchQueue.global().async {
-                        completionHandler(true, oldItems, newItems)
+                        completionHandler(true, oldMovies, nextMovies)
                     }
                 }
             }
         }
+    }
+    
+    private func formatMovieItems(_ movies: [MovieItem]) -> [MovieItem] {
+        return movies.map({ (item) -> MovieItem in
+            if let date = item.info.releaseDate.releaseDateToDate() {
+                item.formattedReleaseDate = format(releaseDate: date)
+            }
+            return item
+        })
+    }
+    
+    private func format(releaseDate: Date) -> String {
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: currentUser.language)
+        dateFormatter.calendar = Calendar.current
+        
+        return dateFormatter.string(from: releaseDate)
     }
 }
 
@@ -156,4 +183,19 @@ extension DiscoveryStatus {
     }
     
     static let zero = DiscoveryStatus(totalPages: 0, totalMovies: 0, currentPage: 0)
+}
+
+extension String {
+    fileprivate func releaseDateToDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+
+        guard let date = dateFormatter.date(from: self) else {
+            return nil
+        }
+        
+        return date
+    }
 }

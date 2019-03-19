@@ -133,4 +133,8 @@ extension MovieItem: MovieDisplayAbstract, MovieDisplayDetail {
         }
         
     }
+    
+    var releaseDate: String {
+        return formattedReleaseDate ?? info.releaseDate
+    }
 }
