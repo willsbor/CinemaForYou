@@ -56,6 +56,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGA-ty-U6n">
+                                            <rect key="frame" x="329" y="117.5" width="31" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="z0d-uW-iAA" firstAttribute="centerY" secondItem="hCn-vc-VMd" secondAttribute="centerY" constant="-35" id="4JN-h3-XVy"/>
@@ -65,11 +71,13 @@
                                         <constraint firstItem="z0d-uW-iAA" firstAttribute="leading" secondItem="g5j-7Y-Kqn" secondAttribute="trailing" constant="15" id="CIp-ph-iWu"/>
                                         <constraint firstItem="g5j-7Y-Kqn" firstAttribute="leading" secondItem="hCn-vc-VMd" secondAttribute="leading" constant="8" id="EeH-Ju-jeL"/>
                                         <constraint firstItem="Qe8-e1-ktZ" firstAttribute="top" secondItem="hCn-vc-VMd" secondAttribute="top" id="Jb0-CF-nMc"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gqw-5Y-1ih" secondAttribute="trailing" constant="15" id="LEU-Th-Bi9"/>
                                         <constraint firstItem="Qe8-e1-ktZ" firstAttribute="leading" secondItem="hCn-vc-VMd" secondAttribute="leading" id="Wtg-oU-jNY"/>
                                         <constraint firstAttribute="bottom" secondItem="Qe8-e1-ktZ" secondAttribute="bottom" id="bat-0A-uh5"/>
+                                        <constraint firstAttribute="trailing" secondItem="qGA-ty-U6n" secondAttribute="trailing" constant="15" id="c6k-Bn-TkC"/>
                                         <constraint firstItem="g5j-7Y-Kqn" firstAttribute="centerY" secondItem="hCn-vc-VMd" secondAttribute="centerY" id="cpH-a0-ocA"/>
                                         <constraint firstItem="gqw-5Y-1ih" firstAttribute="leading" secondItem="g5j-7Y-Kqn" secondAttribute="trailing" constant="15" id="hL0-e6-Dt6"/>
+                                        <constraint firstItem="qGA-ty-U6n" firstAttribute="centerY" secondItem="gqw-5Y-1ih" secondAttribute="centerY" id="hZr-v3-guQ"/>
+                                        <constraint firstItem="qGA-ty-U6n" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gqw-5Y-1ih" secondAttribute="trailing" constant="16" id="iyu-kr-7rh"/>
                                         <constraint firstAttribute="bottom" secondItem="g5j-7Y-Kqn" secondAttribute="bottom" constant="10" id="l2h-I5-wGu"/>
                                         <constraint firstAttribute="trailing" secondItem="Qe8-e1-ktZ" secondAttribute="trailing" id="nK2-4i-8u9"/>
                                     </constraints>
@@ -78,6 +86,7 @@
                                     <outlet property="backdropImageView" destination="Qe8-e1-ktZ" id="Vpk-Dv-3hi"/>
                                     <outlet property="popularityLabel" destination="gqw-5Y-1ih" id="o8V-qL-lyL"/>
                                     <outlet property="posterImageView" destination="g5j-7Y-Kqn" id="ctP-EC-NuD"/>
+                                    <outlet property="releaseDateLabel" destination="qGA-ty-U6n" id="Wvw-MC-vLj"/>
                                     <outlet property="titleLabel" destination="z0d-uW-iAA" id="N5s-Jm-Nwu"/>
                                 </connections>
                             </tableViewCell>
@@ -174,7 +183,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JSE-nW-duM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="250.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="251"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" priority="999" constant="250" id="B5X-L4-Qbe"/>
                                             </constraints>
@@ -209,7 +218,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0n-Zh-q0c">
-                                            <rect key="frame" x="92" y="4" width="267" height="82.5"/>
+                                            <rect key="frame" x="92" y="4" width="267" height="83"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

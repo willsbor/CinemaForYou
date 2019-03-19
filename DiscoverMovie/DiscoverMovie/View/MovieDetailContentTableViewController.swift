@@ -24,7 +24,7 @@ class MovieDetailContentTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 8
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,7 +40,7 @@ class MovieDetailContentTableViewController: UITableViewController {
             }
             
             return cell
-        case 1...6:
+        case 1...7:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ContentCell", for: indexPath) as! MovieDetailContentCell
             
             if let (title, content) = movie?.getTitleContent(indexPath.row) {
@@ -84,6 +84,8 @@ extension MovieDisplayDetail {
             return ("Language", language)
         case 6:
             return ("Duration", duration)
+        case 7:
+            return ("Release Date", releaseDate)
         default:
             preconditionFailure()
         }

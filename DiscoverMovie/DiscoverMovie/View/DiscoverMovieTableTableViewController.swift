@@ -13,6 +13,7 @@ protocol MovieDisplayAbstract {
     var backdropImage: URL? { get }
     var title: String { get }
     var popularity: Double { get }
+    var releaseDate: String { get }
 }
 
 enum MovieResultType {
@@ -85,6 +86,7 @@ class DiscoverMovieTableViewController: UITableViewController {
             
             cell.titleLabel.text = info.title
             cell.popularityLabel.text = "\(info.popularity)"
+            cell.releaseDateLabel.text = info.releaseDate
             
             return cell
         case .elseLeft:

@@ -18,6 +18,7 @@ protocol MovieDisplayDetail {
     var genres: String { get }
     var language: String { get }
     var duration: String { get }
+    var releaseDate: String { get }
 }
 
 protocol MovieDetailControlling {

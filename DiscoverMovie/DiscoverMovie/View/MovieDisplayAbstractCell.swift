@@ -13,6 +13,7 @@ class MovieDisplayAbstractCell: UITableViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var popularityLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
     
     var posterImageViewTask: URLSessionTask?
     var backdropImageViewTask: URLSessionTask?
@@ -44,6 +45,9 @@ class MovieDisplayAbstractCell: UITableViewCell {
         popularityLabel.layer.shadowRadius = 10.0
         popularityLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
         popularityLabel.layer.shadowOpacity = 1.0
+        
+        releaseDateLabel.font = UIFont.systemFont(ofSize: 14)
+        releaseDateLabel.textColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1.0)
         
         placeholderForImageView()
     }
