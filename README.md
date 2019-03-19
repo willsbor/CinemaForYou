@@ -1,5 +1,13 @@
 # CinemaForYou
 
+## System Require
+- Xcode 10.1
+
+## build flow
+1. `cd DiscoverMovie`
+2. `open DiscoverMovie.xcodeproj`
+3. `build` & `run`
+
 ## Class Diagram
 
 ### View / ViewController
@@ -36,6 +44,7 @@ interface MovieDisplayAbstract {
   +backdropImage: URL?
   +title: String
   +popularity: Double
+  +releaseDate
 }
 
 enum MovieChangeType {
@@ -70,6 +79,7 @@ interface MovieDisplayDetail {
   +genres
   +language
   +duration
+  +releaseDate
 }
 
 DiscoverMovieTableViewController .right.> MovieDetailViewController
@@ -141,11 +151,11 @@ class MovieDatabaseManager
 class MovieData
 class MovieDetailData
 class BookingMovieManager
-class MainUser
+class UserManager
 
 MovieDatabaseManager .up.|> MovieDatabase
 BookingMovieManager .up.|> MovieBooking
-MainUser .up.|> User
+UserManager .up.|> User
 MovieDatabaseManager +-- MovieData
 MovieDatabaseManager +-- MovieDetailData
 MovieData <-- MovieItem
