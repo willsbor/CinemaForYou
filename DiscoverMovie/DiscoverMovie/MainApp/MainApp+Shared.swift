@@ -95,7 +95,7 @@ extension UserManager: User {
 }
 
 extension DiscoverySortType {
-    var toMovieDatabaseManagerSortType: MovieDatabaseManager.SortType {
+    fileprivate var toMovieDatabaseManagerSortType: MovieDatabaseManager.SortType {
         switch self {
         case .releaseDate:
             return .releaseDateDESC
