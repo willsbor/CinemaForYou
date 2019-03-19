@@ -86,7 +86,20 @@ extension MainApp: DiscoverMovieControlling, MovieDetailControlling {
 
 extension MovieItem: MovieDisplayAbstract, MovieDisplayDetail {
     var title: String {
-        return "\(info.title) (\(info.originalTitle))"
+        switch (info.title.isEmpty, info.originalTitle.isEmpty) {
+        case (false, false):
+            if info.title != info.originalTitle {
+                return "\(info.title) (\(info.originalTitle))"
+            } else {
+                return info.title
+            }
+        case (true, true):
+            return "<no title>"
+        case (true, false):
+            return info.originalTitle
+        case (false, true):
+            return info.title
+        }
     }
     
     var popularity: Double {
