@@ -1,0 +1,530 @@
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/willsborkang/.atom/packages/markdown-preview-enhanced/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+      <style> 
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+ 
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview   ">
+      <h1 class="mume-header" id="cinemaforyou">CinemaForYou</h1>
+
+<h2 class="mume-header" id="system-require">System Require</h2>
+
+<ul>
+<li>Xcode 10.1</li>
+</ul>
+<h2 class="mume-header" id="build-flow">build flow</h2>
+
+<ol>
+<li><code>cd DiscoverMovie</code></li>
+<li><code>open DiscoverMovie.xcodeproj</code></li>
+<li><code>build</code> &amp; <code>run</code></li>
+</ol>
+<h2 class="mume-header" id="class-diagram">Class Diagram</h2>
+
+<h3 class="mume-header" id="view-viewcontroller">View / ViewController</h3>
+
+<p>prepare two ViewController</p>
+<ol>
+<li>DiscoverMovieTableViewController</li>
+<li>MovieDetailViewController</li>
+</ol>
+<p>using interface to control the UI flow / Action</p>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="643px" preserveAspectRatio="none" style="width:1237px;height:643px;" version="1.1" viewBox="0 0 1237 643" width="1237px" zoomAndPan="magnify"><defs><filter height="300%" id="ffoak56wqeztk" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--class DiscoverMovieTableViewController--><rect fill="#FEFECE" filter="url(#ffoak56wqeztk)" height="60.9551" id="DiscoverMovieTableViewController" style="stroke: #A80036; stroke-width: 1.5;" width="230" x="488" y="8"/><ellipse cx="503" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M505.4731,30.1431 Q504.8921,30.4419 504.2529,30.5913 Q503.6138,30.7407 502.9082,30.7407 Q500.4014,30.7407 499.0815,29.0889 Q497.7617,27.437 497.7617,24.3159 Q497.7617,21.1865 499.0815,19.5347 Q500.4014,17.8828 502.9082,17.8828 Q503.6138,17.8828 504.2612,18.0322 Q504.9087,18.1816 505.4731,18.4805 L505.4731,21.2031 Q504.8423,20.6221 504.2488,20.3523 Q503.6553,20.0825 503.0244,20.0825 Q501.6797,20.0825 500.9949,21.1492 Q500.3101,22.2158 500.3101,24.3159 Q500.3101,26.4077 500.9949,27.4744 Q501.6797,28.541 503.0244,28.541 Q503.6553,28.541 504.2488,28.2712 Q504.8423,28.0015 505.4731,27.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="198" x="517" y="28.5352">DiscoverMovieTableViewController</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="489" x2="717" y1="40" y2="40"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="207" x="494" y="54.6348">+controller: DiscoverMovieControlling</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="489" x2="717" y1="60.9551" y2="60.9551"/><!--class DiscoverMovieControlling--><rect fill="#FEFECE" filter="url(#ffoak56wqeztk)" height="125.7305" id="DiscoverMovieControlling" style="stroke: #A80036; stroke-width: 1.5;" width="335" x="215.5" y="149.5"/><ellipse cx="307.25" cy="165.5" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M303.6777,161.7651 L303.6777,159.6069 L311.0571,159.6069 L311.0571,161.7651 L308.5918,161.7651 L308.5918,169.8418 L311.0571,169.8418 L311.0571,172 L303.6777,172 L303.6777,169.8418 L306.1431,169.8418 L306.1431,161.7651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="143" x="327.75" y="170.0352">DiscoverMovieControlling</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="216.5" x2="549.5" y1="181.5" y2="181.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="236" x="221.5" y="196.1348">+discoverDelegate: MoviesChangeDelegate?</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="216.5" x2="549.5" y1="202.4551" y2="202.4551"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="213" x="221.5" y="217.0898">+currentMovies() -&gt; [MovieResultType]</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="242" x="221.5" y="230.0449">+getMovie(by index: Int) -&gt; MovieResultType</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="323" x="221.5" y="243">+refreshMovies(_ completionHandler: @escaping () -&gt; Void)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="122" x="221.5" y="255.9551">+requestMoreMovies()</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="287" x="221.5" y="268.9102">+focusMovie(_ movieAbstract: MovieDisplayAbstract)</text><!--class MovieResultType--><rect fill="#FEFECE" filter="url(#ffoak56wqeztk)" height="86.8652" id="MovieResultType" style="stroke: #A80036; stroke-width: 1.5;" width="174" x="6" y="169"/><ellipse cx="41.25" cy="185" fill="#EB937F" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M44.8643,191.5 L37.1445,191.5 L37.1445,179.1069 L44.8643,179.1069 L44.8643,181.2651 L39.5933,181.2651 L39.5933,183.938 L44.3662,183.938 L44.3662,186.0962 L39.5933,186.0962 L39.5933,189.3418 L44.8643,189.3418 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="97" x="59.75" y="189.5352">MovieResultType</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="179" y1="201" y2="201"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="162" x="12" y="215.6348">normal{MovieDisplayAbstract}</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="41" x="12" y="228.5898">elseLeft</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="26" x="12" y="241.5449">finial</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="179" y1="247.8652" y2="247.8652"/><!--class MovieDisplayAbstract--><rect fill="#FEFECE" filter="url(#ffoak56wqeztk)" height="112.7754" id="MovieDisplayAbstract" style="stroke: #A80036; stroke-width: 1.5;" width="155" x="15.5" y="372"/><ellipse cx="30.5" cy="388" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M26.9277,384.2651 L26.9277,382.1069 L34.3071,382.1069 L34.3071,384.2651 L31.8418,384.2651 L31.8418,392.3418 L34.3071,392.3418 L34.3071,394.5 L26.9277,394.5 L26.9277,392.3418 L29.3931,392.3418 L29.3931,384.2651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="123" x="44.5" y="392.5352">MovieDisplayAbstract</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="16.5" x2="169.5" y1="404" y2="404"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="108" x="21.5" y="418.6348">+posterImage: URL?</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="124" x="21.5" y="431.5898">+backdropImage: URL?</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="67" x="21.5" y="444.5449">+title: String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="108" x="21.5" y="457.5">+popularity: Double</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="71" x="21.5" y="470.4551">+releaseDate</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="16.5" x2="169.5" y1="476.7754" y2="476.7754"/><!--class MovieChangeType--><rect fill="#FEFECE" filter="url(#ffoak56wqeztk)" height="86.8652" id="MovieChangeType" style="stroke: #A80036; stroke-width: 1.5;" width="137" x="460.5" y="546"/><ellipse cx="475.5" cy="562" fill="#EB937F" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M479.1143,568.5 L471.3945,568.5 L471.3945,556.1069 L479.1143,556.1069 L479.1143,558.2651 L473.8433,558.2651 L473.8433,560.938 L478.6162,560.938 L478.6162,563.0962 L473.8433,563.0962 L473.8433,566.3418 L479.1143,566.3418 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="105" x="489.5" y="566.5352">MovieChangeType</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="461.5" x2="596.5" y1="578" y2="578"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="31" x="466.5" y="592.6348">insert</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="39" x="466.5" y="605.5898">replace</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="32" x="466.5" y="618.5449">delete</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="461.5" x2="596.5" y1="624.8652" y2="624.8652"/><!--class MoviesChangeDelegate--><rect fill="#FEFECE" filter="url(#ffoak56wqeztk)" height="86.8652" id="MoviesChangeDelegate" style="stroke: #A80036; stroke-width: 1.5;" width="347" x="355.5" y="385"/><ellipse cx="458.25" cy="401" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M454.6777,397.2651 L454.6777,395.1069 L462.0571,395.1069 L462.0571,397.2651 L459.5918,397.2651 L459.5918,405.3418 L462.0571,405.3418 L462.0571,407.5 L454.6777,407.5 L454.6777,405.3418 L457.1431,405.3418 L457.1431,397.2651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="133" x="478.75" y="405.5352">MoviesChangeDelegate</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="356.5" x2="701.5" y1="417" y2="417"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="356.5" x2="701.5" y1="425" y2="425"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="47" x="361.5" y="439.6348">+begin()</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="335" x="361.5" y="452.5898">+movieDataDidChange(indexes: [Int], type: MovieChangeType)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="37" x="361.5" y="465.5449">+end()</text><!--class MovieDetailViewController--><rect fill="#FEFECE" filter="url(#ffoak56wqeztk)" height="60.9551" id="MovieDetailViewController" style="stroke: #A80036; stroke-width: 1.5;" width="202" x="753" y="8"/><ellipse cx="777.45" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M779.9231,30.1431 Q779.3421,30.4419 778.7029,30.5913 Q778.0638,30.7407 777.3582,30.7407 Q774.8514,30.7407 773.5315,29.0889 Q772.2117,27.437 772.2117,24.3159 Q772.2117,21.1865 773.5315,19.5347 Q774.8514,17.8828 777.3582,17.8828 Q778.0638,17.8828 778.7112,18.0322 Q779.3587,18.1816 779.9231,18.4805 L779.9231,21.2031 Q779.2923,20.6221 778.6988,20.3523 Q778.1053,20.0825 777.4744,20.0825 Q776.1297,20.0825 775.4449,21.1492 Q774.7601,22.2158 774.7601,24.3159 Q774.7601,26.4077 775.4449,27.4744 Q776.1297,28.541 777.4744,28.541 Q778.1053,28.541 778.6988,28.2712 Q779.2923,28.0015 779.9231,27.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="149" x="793.55" y="28.5352">MovieDetailViewController</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="754" x2="954" y1="40" y2="40"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="190" x="759" y="54.6348">+controller: MovieDetailControlling</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="754" x2="954" y1="60.9551" y2="60.9551"/><!--class MovieDetailControlling--><rect fill="#FEFECE" filter="url(#ffoak56wqeztk)" height="99.8203" id="MovieDetailControlling" style="stroke: #A80036; stroke-width: 1.5;" width="393" x="657.5" y="162.5"/><ellipse cx="786.25" cy="178.5" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M782.6777,174.7651 L782.6777,172.6069 L790.0571,172.6069 L790.0571,174.7651 L787.5918,174.7651 L787.5918,182.8418 L790.0571,182.8418 L790.0571,185 L782.6777,185 L782.6777,182.8418 L785.1431,182.8418 L785.1431,174.7651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="127" x="806.75" y="183.0352">MovieDetailControlling</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="658.5" x2="1049.5" y1="194.5" y2="194.5"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="658.5" x2="1049.5" y1="202.5" y2="202.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="381" x="663.5" y="217.1348">+requestFocusMovieDetail(_ completionHandler: @escaping () -&gt; Void)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="253" x="663.5" y="230.0898">+getFocusMovieDetail() -&gt; MovieDisplayDetail?</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="203" x="663.5" y="243.0449">+getBookingFocusMovieURL() -&gt; URL</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="91" x="663.5" y="256">+defocusMovie()</text><!--class MovieDisplayDetail--><rect fill="#FEFECE" filter="url(#ffoak56wqeztk)" height="164.5957" id="MovieDisplayDetail" style="stroke: #A80036; stroke-width: 1.5;" width="140" x="1086" y="130"/><ellipse cx="1101" cy="146" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1097.4277,142.2651 L1097.4277,140.1069 L1104.8071,140.1069 L1104.8071,142.2651 L1102.3418,142.2651 L1102.3418,150.3418 L1104.8071,150.3418 L1104.8071,152.5 L1097.4277,152.5 L1097.4277,150.3418 L1099.8931,150.3418 L1099.8931,142.2651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="108" x="1115" y="150.5352">MovieDisplayDetail</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1087" x2="1225" y1="162" y2="162"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="76" x="1092" y="176.6348">+posterImage</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="92" x="1092" y="189.5898">+backdropImage</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="29" x="1092" y="202.5449">+title</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="64" x="1092" y="215.5">+popularity</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="57" x="1092" y="228.4551">+synopsis</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="46" x="1092" y="241.4102">+genres</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="58" x="1092" y="254.3652">+language</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="55" x="1092" y="267.3203">+duration</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="71" x="1092" y="280.2754">+releaseDate</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1087" x2="1225" y1="286.5957" y2="286.5957"/><!--link DiscoverMovieTableViewController to MovieDetailViewController--><path d="M718.2051,38.5 C728.0674,38.5 737.9298,38.5 747.7921,38.5 " fill="none" id="DiscoverMovieTableViewController-MovieDetailViewController" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="752.9495,38.5,743.9495,34.5,747.9495,38.5,743.9495,42.5,752.9495,38.5" style="stroke: #A80036; stroke-width: 1.0;"/><!--link DiscoverMovieTableViewController to DiscoverMovieControlling--><path d="M554.1697,77.1204 C530.4421,95.8867 501.1473,119.0562 473.5414,140.89 " fill="none" id="DiscoverMovieTableViewController-DiscoverMovieControlling" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="463.0589,149.1807,472.5993,146.735,466.9806,146.079,467.6366,140.4603,463.0589,149.1807" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="466.9806" x2="473.2554" y1="146.079" y2="141.1163"/><polygon fill="#A80036" points="564.4272,69.0076,557.2398,69.5922,555.0151,76.4516,562.2025,75.8669,564.4272,69.0076" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="463.8532" y="138.5941">1</text><!--link MovieResultType to DiscoverMovieControlling--><path d="M185.4586,212.5 C195.4639,212.5 205.4691,212.5 215.4743,212.5 " fill="none" id="MovieResultType-DiscoverMovieControlling" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="180.2266,212.5,189.2266,216.5,185.2266,212.5,189.2266,208.5,180.2266,212.5" style="stroke: #A80036; stroke-width: 1.0;"/><!--link MovieResultType to MovieDisplayAbstract--><path d="M93,256.2108 C93,287.9344 93,331.2935 93,366.5772 " fill="none" id="MovieResultType-MovieDisplayAbstract" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="93,371.7221,97,362.7221,93,366.7221,89,362.7221,93,371.7221" style="stroke: #A80036; stroke-width: 1.0;"/><!--link DiscoverMovieControlling to MoviesChangeDelegate--><path d="M425.6217,275.5568 C448.2444,309.026 475.6046,349.5041 496.4938,380.4086 " fill="none" id="DiscoverMovieControlling-MoviesChangeDelegate" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="499.5275,384.8968,497.8012,375.2004,496.7274,380.7544,491.1734,379.6806,499.5275,384.8968" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="53" x="471" y="338.5684">delegate</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="486.1928" y="374.3561">1</text><!--link MoviesChangeDelegate to MovieChangeType--><path d="M529,472.0689 C529,493.2778 529,518.8532 529,540.7143 " fill="none" id="MoviesChangeDelegate-MovieChangeType" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="529,545.8963,533,536.8963,529,540.8963,525,536.8963,529,545.8963" style="stroke: #A80036; stroke-width: 1.0;"/><!--link DiscoverMovieTableViewController to MoviesChangeDelegate--><path d="M600.3036,69.1565 C595.717,117.5236 585.1857,214.3384 568,295 C563.0498,318.2339 556.1444,343.3268 549.5177,365.4184 " fill="none" id="DiscoverMovieTableViewController-MoviesChangeDelegate" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="556.1493,367.6684,543.5744,384.7234,542.769,363.549,556.1493,367.6684" style="stroke: #A80036; stroke-width: 1.0;"/><!--link MovieDetailViewController to MovieDetailControlling--><path d="M854,82.393 C854,102.6371 854,127.0481 854,149.2305 " fill="none" id="MovieDetailViewController-MovieDetailControlling" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="854,162.3398,858,153.3398,854,157.3398,850,153.3398,854,162.3398" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="854" x2="854.0001" y1="157.3398" y2="149.3398"/><polygon fill="#A80036" points="854,69.2072,850,75.2072,854,81.2072,858,75.2072,854,69.2072" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="845.4375" y="151.8342">1</text><!--link MovieDetailControlling to MovieDisplayDetail--><path d="M1050.7129,212.5 C1060.636,212.5 1070.5592,212.5 1080.4823,212.5 " fill="none" id="MovieDetailControlling-MovieDisplayDetail" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="#A80036" points="1085.6715,212.5,1076.6715,208.5,1080.6715,212.5,1076.6715,216.5,1085.6715,212.5" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+skinparam classAttributeIconSize 0
+
+class DiscoverMovieTableViewController {
+  +controller: DiscoverMovieControlling
+}
+
+interface DiscoverMovieControlling {
+  +discoverDelegate: MoviesChangeDelegate?
+  +currentMovies() -> [MovieResultType]
+  +getMovie(by index: Int) -> MovieResultType
+  +refreshMovies(_ completionHandler: @escaping () -> Void)
+  +requestMoreMovies()
+  +focusMovie(_ movieAbstract: MovieDisplayAbstract)
+}
+
+enum MovieResultType {
+  normal{MovieDisplayAbstract}
+  elseLeft
+  finial
+}
+
+interface MovieDisplayAbstract {
+  +posterImage: URL?
+  +backdropImage: URL?
+  +title: String
+  +popularity: Double
+  +releaseDate
+}
+
+enum MovieChangeType {
+    insert
+    replace
+    delete
+}
+
+interface MoviesChangeDelegate {
+  +begin()
+  +movieDataDidChange(indexes: [Int], type: MovieChangeType)
+  +end()
+}
+
+class MovieDetailViewController {
+  +controller: MovieDetailControlling
+}
+
+interface MovieDetailControlling {
+  +requestFocusMovieDetail(_ completionHandler: @escaping () -> Void)
+  +getFocusMovieDetail() -> MovieDisplayDetail?
+  +getBookingFocusMovieURL() -> URL
+  +defocusMovie()
+}
+
+interface MovieDisplayDetail {
+  +posterImage
+  +backdropImage
+  +title
+  +popularity
+  +synopsis
+  +genres
+  +language
+  +duration
+  +releaseDate
+}
+
+DiscoverMovieTableViewController .right.> MovieDetailViewController
+
+DiscoverMovieTableViewController *- -> "1" DiscoverMovieControlling
+DiscoverMovieControlling .left.> MovieResultType
+MovieResultType - -> MovieDisplayAbstract
+DiscoverMovieControlling - -> "1" MoviesChangeDelegate : delegate
+MoviesChangeDelegate ..> MovieChangeType
+
+DiscoverMovieTableViewController ..|> MoviesChangeDelegate
+
+MovieDetailViewController *- -> "1" MovieDetailControlling
+MovieDetailControlling .right.> MovieDisplayDetail
+@enduml
+
+PlantUML version 1.2019.02(Sat Mar 02 05:20:40 CST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_201-b09
+Operating System: Mac OS X
+OS Version: 10.14.3
+Default Encoding: UTF-8
+Language: zh
+Country: TW
+--></g></svg></p><h3 class="mume-header" id="business-rule">Business Rule</h3>
+
+<p>MainApp is the master of all. It owns the business rules. I design the neccessary interfaces. During a business flow, if MainApp can&apos;t support. it will ask another manager or helper by interface.</p>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="648px" preserveAspectRatio="none" style="width:1474px;height:648px;" version="1.1" viewBox="0 0 1474 648" width="1474px" zoomAndPan="magnify"><defs><filter height="300%" id="f1wq2oilxovxgg" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--class MovieDatabase--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="73.9102" id="MovieDatabase" style="stroke: #A80036; stroke-width: 1.5;" width="573" x="488.5" y="232.5"/><ellipse cx="726.75" cy="248.5" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M723.1777,244.7651 L723.1777,242.6069 L730.5571,242.6069 L730.5571,244.7651 L728.0918,244.7651 L728.0918,252.8418 L730.5571,252.8418 L730.5571,255 L723.1777,255 L723.1777,252.8418 L725.6431,252.8418 L725.6431,244.7651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="88" x="747.25" y="253.0352">MovieDatabase</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="489.5" x2="1060.5" y1="264.5" y2="264.5"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="489.5" x2="1060.5" y1="272.5" y2="272.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="427" x="494.5" y="287.1348">+discoverMoviesNextState(User, DiscoverySortType, DiscoveryStatus?, handler)</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="561" x="494.5" y="300.0898">+detailMovie(_ movieItem: MovieItem, _ user: User, _ completionHandler: @escaping (MovieItem) -&gt; Void)</text><!--class MovieBooking--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="60.9551" id="MovieBooking" style="stroke: #A80036; stroke-width: 1.5;" width="323" x="130.5" y="239"/><ellipse cx="248.75" cy="255" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M245.1777,251.2651 L245.1777,249.1069 L252.5571,249.1069 L252.5571,251.2651 L250.0918,251.2651 L250.0918,259.3418 L252.5571,259.3418 L252.5571,261.5 L245.1777,261.5 L245.1777,259.3418 L247.6431,259.3418 L247.6431,251.2651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="78" x="269.25" y="259.5352">MovieBooking</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="131.5" x2="452.5" y1="271" y2="271"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="131.5" x2="452.5" y1="279" y2="279"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="311" x="136.5" y="293.6348">+bookMovie(_ user: User, _ movieItem: MovieItem) -&gt; URL</text><!--class User--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="73.9102" id="User" style="stroke: #A80036; stroke-width: 1.5;" width="70" x="25" y="232.5"/><ellipse cx="45.4" cy="248.5" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M41.8277,244.7651 L41.8277,242.6069 L49.2071,242.6069 L49.2071,244.7651 L46.7418,244.7651 L46.7418,252.8418 L49.2071,252.8418 L49.2071,255 L41.8277,255 L41.8277,252.8418 L44.2931,252.8418 L44.2931,244.7651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="26" x="60.6" y="253.0352">User</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="26" x2="94" y1="264.5" y2="264.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="44" x="31" y="279.1348">+region</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="58" x="31" y="292.0898">+language</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="26" x2="94" y1="298.4102" y2="298.4102"/><!--class MovieItem--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="48" id="MovieItem" style="stroke: #A80036; stroke-width: 1.5;" width="90" x="914" y="589"/><ellipse cx="929" cy="605" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M931.4731,611.1431 Q930.8921,611.4419 930.2529,611.5913 Q929.6138,611.7407 928.9082,611.7407 Q926.4014,611.7407 925.0815,610.0889 Q923.7617,608.437 923.7617,605.3159 Q923.7617,602.1865 925.0815,600.5347 Q926.4014,598.8828 928.9082,598.8828 Q929.6138,598.8828 930.2612,599.0322 Q930.9087,599.1816 931.4731,599.4805 L931.4731,602.2031 Q930.8423,601.6221 930.2488,601.3523 Q929.6553,601.0825 929.0244,601.0825 Q927.6797,601.0825 926.9949,602.1492 Q926.3101,603.2158 926.3101,605.3159 Q926.3101,607.4077 926.9949,608.4744 Q927.6797,609.541 929.0244,609.541 Q929.6553,609.541 930.2488,609.2712 Q930.8423,609.0015 931.4731,608.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="58" x="943" y="609.5352">MovieItem</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="915" x2="1003" y1="621" y2="621"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="915" x2="1003" y1="629" y2="629"/><!--class DiscoveryStatus--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="86.8652" id="DiscoveryStatus" style="stroke: #A80036; stroke-width: 1.5;" width="121" x="1168.5" y="226"/><ellipse cx="1183.5" cy="242" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1185.9731,248.1431 Q1185.3921,248.4419 1184.7529,248.5913 Q1184.1138,248.7407 1183.4082,248.7407 Q1180.9014,248.7407 1179.5815,247.0889 Q1178.2617,245.437 1178.2617,242.3159 Q1178.2617,239.1865 1179.5815,237.5347 Q1180.9014,235.8828 1183.4082,235.8828 Q1184.1138,235.8828 1184.7612,236.0322 Q1185.4087,236.1816 1185.9731,236.4805 L1185.9731,239.2031 Q1185.3423,238.6221 1184.7488,238.3523 Q1184.1553,238.0825 1183.5244,238.0825 Q1182.1797,238.0825 1181.4949,239.1492 Q1180.8101,240.2158 1180.8101,242.3159 Q1180.8101,244.4077 1181.4949,245.4744 Q1182.1797,246.541 1183.5244,246.541 Q1184.1553,246.541 1184.7488,246.2712 Q1185.3423,246.0015 1185.9731,245.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="89" x="1197.5" y="246.5352">DiscoveryStatus</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1169.5" x2="1288.5" y1="258" y2="258"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="84" x="1174.5" y="272.6348">+totalPages: Int</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="90" x="1174.5" y="285.5898">+totalMovies: Int</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="94" x="1174.5" y="298.5449">+currentPage: Int</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1169.5" x2="1288.5" y1="304.8652" y2="304.8652"/><!--class DiscoverySortType--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="60.9551" id="DiscoverySortType" style="stroke: #A80036; stroke-width: 1.5;" width="138" x="1325" y="239"/><ellipse cx="1340" cy="255" fill="#EB937F" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M1343.6143,261.5 L1335.8945,261.5 L1335.8945,249.1069 L1343.6143,249.1069 L1343.6143,251.2651 L1338.3433,251.2651 L1338.3433,253.938 L1343.1162,253.938 L1343.1162,256.0962 L1338.3433,256.0962 L1338.3433,259.3418 L1343.6143,259.3418 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="106" x="1354" y="259.5352">DiscoverySortType</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1326" x2="1462" y1="271" y2="271"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="62" x="1331" y="285.6348">releaseDate</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="1326" x2="1462" y1="291.9551" y2="291.9551"/><!--class MainApp--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="157.9063" id="MainApp" style="stroke: #A80036; stroke-width: 1.5;" width="231" x="829.5" y="8"/><ellipse cx="911.25" cy="27.1328" fill="#FF7700" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M910.4834,28.1958 Q908.6323,27.4902 907.9766,26.7141 Q907.3208,25.938 907.3208,24.6265 Q907.3208,22.9414 908.3999,21.9785 Q909.479,21.0156 911.3633,21.0156 Q912.2183,21.0156 913.0732,21.2107 Q913.9282,21.4058 914.7666,21.7876 L914.7666,24.1782 Q913.978,23.6221 913.1646,23.3315 Q912.3511,23.041 911.5542,23.041 Q910.666,23.041 910.1929,23.3979 Q909.7197,23.7549 909.7197,24.4189 Q909.7197,24.9336 910.0642,25.2698 Q910.4087,25.606 911.5044,26.0127 L912.5586,26.4111 Q914.0527,26.959 914.7583,27.8638 Q915.4639,28.7686 915.4639,30.1465 Q915.4639,32.0225 914.3557,32.948 Q913.2476,33.8735 911.0063,33.8735 Q910.085,33.8735 909.1594,33.6536 Q908.2339,33.4336 907.3706,33.002 L907.3706,30.4702 Q908.3501,31.1675 909.2673,31.5078 Q910.1846,31.8481 911.0811,31.8481 Q911.9858,31.8481 912.4839,31.4373 Q912.9819,31.0264 912.9819,30.2876 Q912.9819,29.7314 912.6499,29.3123 Q912.3179,28.8931 911.687,28.6523 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="63" x="929.75" y="24.6016">&#xAB;Singleton&#xBB;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="935.75" y="38.7344">MainApp</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="830.5" x2="1059.5" y1="46.2656" y2="46.2656"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="219" x="835.5" y="60.9004">+movieDiscoverProvider: MovieDatabase</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="192" x="835.5" y="73.8555">+movieBookProvider: MovieBooking</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="64" x="835.5" y="86.8105">+user: User</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="135" x="835.5" y="99.7656">+focusMovie: MovieItem?</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="0" x="838.5" y="112.7207"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="190" x="835.5" y="125.6758">+discoverySort: DiscoverySortType</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="191" x="835.5" y="138.6309">+discoveryStatus: DiscoveryStatus?</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="160" x="835.5" y="151.5859">+discoverMovies: [MovieItem]</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="830.5" x2="1059.5" y1="157.9063" y2="157.9063"/><!--class MovieDatabaseManager--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="48" id="MovieDatabaseManager" style="stroke: #A80036; stroke-width: 1.5;" width="170" x="730" y="373"/><ellipse cx="745" cy="389" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M747.4731,395.1431 Q746.8921,395.4419 746.2529,395.5913 Q745.6138,395.7407 744.9082,395.7407 Q742.4014,395.7407 741.0815,394.0889 Q739.7617,392.437 739.7617,389.3159 Q739.7617,386.1865 741.0815,384.5347 Q742.4014,382.8828 744.9082,382.8828 Q745.6138,382.8828 746.2612,383.0322 Q746.9087,383.1816 747.4731,383.4805 L747.4731,386.2031 Q746.8423,385.6221 746.2488,385.3523 Q745.6553,385.0825 745.0244,385.0825 Q743.6797,385.0825 742.9949,386.1492 Q742.3101,387.2158 742.3101,389.3159 Q742.3101,391.4077 742.9949,392.4744 Q743.6797,393.541 745.0244,393.541 Q745.6553,393.541 746.2488,393.2712 Q746.8423,393.0015 747.4731,392.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="138" x="759" y="393.5352">MovieDatabaseManager</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="731" x2="899" y1="405" y2="405"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="731" x2="899" y1="413" y2="413"/><!--class MovieData--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="48" id="MovieData" style="stroke: #A80036; stroke-width: 1.5;" width="92" x="769" y="481"/><ellipse cx="784" cy="497" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M786.4731,503.1431 Q785.8921,503.4419 785.2529,503.5913 Q784.6138,503.7407 783.9082,503.7407 Q781.4014,503.7407 780.0815,502.0889 Q778.7617,500.437 778.7617,497.3159 Q778.7617,494.1865 780.0815,492.5347 Q781.4014,490.8828 783.9082,490.8828 Q784.6138,490.8828 785.2612,491.0322 Q785.9087,491.1816 786.4731,491.4805 L786.4731,494.2031 Q785.8423,493.6221 785.2488,493.3523 Q784.6553,493.0825 784.0244,493.0825 Q782.6797,493.0825 781.9949,494.1492 Q781.3101,495.2158 781.3101,497.3159 Q781.3101,499.4077 781.9949,500.4744 Q782.6797,501.541 784.0244,501.541 Q784.6553,501.541 785.2488,501.2712 Q785.8423,501.0015 786.4731,500.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="798" y="501.5352">MovieData</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="770" x2="860" y1="513" y2="513"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="770" x2="860" y1="521" y2="521"/><!--class MovieDetailData--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="48" id="MovieDetailData" style="stroke: #A80036; stroke-width: 1.5;" width="125" x="896.5" y="481"/><ellipse cx="911.5" cy="497" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M913.9731,503.1431 Q913.3921,503.4419 912.7529,503.5913 Q912.1138,503.7407 911.4082,503.7407 Q908.9014,503.7407 907.5815,502.0889 Q906.2617,500.437 906.2617,497.3159 Q906.2617,494.1865 907.5815,492.5347 Q908.9014,490.8828 911.4082,490.8828 Q912.1138,490.8828 912.7612,491.0322 Q913.4087,491.1816 913.9731,491.4805 L913.9731,494.2031 Q913.3423,493.6221 912.7488,493.3523 Q912.1553,493.0825 911.5244,493.0825 Q910.1797,493.0825 909.4949,494.1492 Q908.8101,495.2158 908.8101,497.3159 Q908.8101,499.4077 909.4949,500.4744 Q910.1797,501.541 911.5244,501.541 Q912.1553,501.541 912.7488,501.2712 Q913.3423,501.0015 913.9731,500.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="93" x="925.5" y="501.5352">MovieDetailData</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="897.5" x2="1020.5" y1="513" y2="513"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="897.5" x2="1020.5" y1="521" y2="521"/><!--class BookingMovieManager--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="48" id="BookingMovieManager" style="stroke: #A80036; stroke-width: 1.5;" width="160" x="212" y="373"/><ellipse cx="227" cy="389" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M229.4731,395.1431 Q228.8921,395.4419 228.2529,395.5913 Q227.6138,395.7407 226.9082,395.7407 Q224.4014,395.7407 223.0815,394.0889 Q221.7617,392.437 221.7617,389.3159 Q221.7617,386.1865 223.0815,384.5347 Q224.4014,382.8828 226.9082,382.8828 Q227.6138,382.8828 228.2612,383.0322 Q228.9087,383.1816 229.4731,383.4805 L229.4731,386.2031 Q228.8423,385.6221 228.2488,385.3523 Q227.6553,385.0825 227.0244,385.0825 Q225.6797,385.0825 224.9949,386.1492 Q224.3101,387.2158 224.3101,389.3159 Q224.3101,391.4077 224.9949,392.4744 Q225.6797,393.541 227.0244,393.541 Q227.6553,393.541 228.2488,393.2712 Q228.8423,393.0015 229.4731,392.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="128" x="241" y="393.5352">BookingMovieManager</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="213" x2="371" y1="405" y2="405"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="213" x2="371" y1="413" y2="413"/><!--class UserManager--><rect fill="#FEFECE" filter="url(#f1wq2oilxovxgg)" height="48" id="UserManager" style="stroke: #A80036; stroke-width: 1.5;" width="108" x="6" y="373"/><ellipse cx="21" cy="389" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M23.4731,395.1431 Q22.8921,395.4419 22.2529,395.5913 Q21.6138,395.7407 20.9082,395.7407 Q18.4014,395.7407 17.0815,394.0889 Q15.7617,392.437 15.7617,389.3159 Q15.7617,386.1865 17.0815,384.5347 Q18.4014,382.8828 20.9082,382.8828 Q21.6138,382.8828 22.2612,383.0322 Q22.9087,383.1816 23.4731,383.4805 L23.4731,386.2031 Q22.8423,385.6221 22.2488,385.3523 Q21.6553,385.0825 21.0244,385.0825 Q19.6797,385.0825 18.9949,386.1492 Q18.3101,387.2158 18.3101,389.3159 Q18.3101,391.4077 18.9949,392.4744 Q19.6797,393.541 21.0244,393.541 Q21.6553,393.541 22.2488,393.2712 Q22.8423,393.0015 23.4731,392.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="35" y="393.5352">UserManager</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="113" y1="405" y2="405"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="113" y1="413" y2="413"/><!--link MainApp to User--><path d="M816.3707,100.2817 C615.1585,122.4263 236.2115,170.028 113,226 C110.6834,227.0524 108.3842,228.2323 106.1155,229.5111 " fill="none" id="MainApp-User" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="95.0888,236.5966,104.8227,235.0963,99.2952,233.8936,100.4979,228.3661,95.0888,236.5966" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="99.2952" x2="106.0256" y1="233.8936" y2="229.5689"/><polygon fill="#A80036" points="829.3626,98.8601,822.963,95.5366,817.4338,100.1656,823.8334,103.4891,829.3626,98.8601" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="103.1509" y="225.873">1</text><!--link MainApp to MovieDatabase--><path d="M862.1388,175.9539 C847.1363,192.0596 832.0448,208.2607 818.7355,222.5486 " fill="none" id="MainApp-MovieDatabase" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="809.8291,232.1099,818.8904,228.2509,813.2371,228.4513,813.0367,222.798,809.8291,232.1099" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="813.2371" x2="818.69" y1="228.4513" y2="222.5975"/><polygon fill="#A80036" points="871.1772,166.2509,864.1607,167.9148,862.9979,175.0315,870.0144,173.3676,871.1772,166.2509" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="807.3205" y="221.7179">1</text><!--link MainApp to MovieBooking--><path d="M816.7487,122.8436 C699.9818,155.4775 528.7766,203.3258 414.0039,235.4024 " fill="none" id="MainApp-MovieBooking" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="401.3401,238.9417,411.0846,240.3716,406.1556,237.5959,408.9313,232.6668,401.3401,238.9417" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="406.1556" x2="413.8603" y1="237.5959" y2="235.4425"/><polygon fill="#A80036" points="829.3847,119.3121,822.5295,117.0747,817.8276,122.5421,824.6828,124.7795,829.3847,119.3121" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="416.3832" y="228.2237">1</text><!--link MainApp to MovieItem--><path d="M1049.148,176.3772 C1061.2879,191.6364 1071.866,208.3209 1079,226 C1108.6039,299.3631 1053.375,500.8448 1039,529 C1029.3273,547.9453 1014.0175,565.5569 999.369,579.7102 " fill="none" id="MainApp-MovieItem" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="989.4107,588.93,998.7323,585.7507,993.0796,585.5331,993.2973,579.8804,989.4107,588.93" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="993.0796" x2="998.95" y1="585.5331" y2="580.0981"/><polygon fill="#A80036" points="1040.5172,166.0461,1041.2943,173.2152,1048.2108,175.2553,1047.4337,168.0861,1040.5172,166.0461" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="34" x="958.8472" y="578.4483">many</text><!--link MainApp to DiscoveryStatus--><path d="M1071.8561,168.5185 C1101.1315,187.331 1131.2753,206.7016 1157.2339,223.3827 " fill="none" id="MainApp-DiscoveryStatus" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1168.4667,230.601,1163.0577,222.3704,1164.2603,227.8979,1158.7328,229.1006,1168.4667,230.601" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="1164.2603" x2="1157.5301" y1="227.8979" y2="223.573"/><polygon fill="#A80036" points="1060.5137,161.2297,1063.3989,167.8384,1070.609,167.717,1067.7238,161.1082,1060.5137,161.2297" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="24" x="1136.5334" y="223.1188">0..1</text><!--link MainApp to DiscoverySortType--><path d="M1073.0693,132.724 C1142.888,158.512 1230.4351,192.2542 1307,226 C1312.0414,228.222 1317.2109,230.5841 1322.3938,233.0146 " fill="none" id="MainApp-DiscoverySortType" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="1334.458,238.776,1328.0604,231.288,1329.9461,236.6213,1324.6128,238.507,1334.458,238.776" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="1329.9461" x2="1322.7271" y1="236.6213" y2="233.1738"/><polygon fill="#A80036" points="1060.6912,128.1667,1064.9397,133.9934,1071.9522,132.3128,1067.7037,126.4861,1060.6912,128.1667" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="1312.5582" y="228.0217">1</text><!--link MovieDatabase to MovieDatabaseManager--><path d="M792.6771,325.8458 C797.8493,342.3321 803.2315,359.488 807.4149,372.8226 " fill="none" id="MovieDatabase-MovieDatabaseManager" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="785.985,327.8994,786.6772,306.721,799.3431,323.7086,785.985,327.8994" style="stroke: #A80036; stroke-width: 1.0;"/><!--link MovieBooking to BookingMovieManager--><path d="M292,320.2199 C292,338.2961 292,357.8323 292,372.6746 " fill="none" id="MovieBooking-BookingMovieManager" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="285.0001,320.0395,292,300.0394,299.0001,320.0394,285.0001,320.0395" style="stroke: #A80036; stroke-width: 1.0;"/><!--link User to UserManager--><path d="M60,326.9278 C60,343.0803 60,359.7795 60,372.8226 " fill="none" id="User-UserManager" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="53.0001,326.7211,60,306.721,67.0001,326.721,53.0001,326.7211" style="stroke: #A80036; stroke-width: 1.0;"/><!--link MovieDatabaseManager to MovieData--><path d="M815,436.5021 C815,451.3582 815,467.7954 815,480.8436 " fill="none" id="MovieDatabaseManager-MovieData" style="stroke: #A80036; stroke-width: 1.0;"/><ellipse cx="815" cy="429.2373" fill="#FFFFFF" rx="8" ry="8" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="815" x2="815" y1="437.2373" y2="421.2373"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="807" x2="823" y1="429.2373" y2="429.2373"/><!--link MovieDatabaseManager to MovieDetailData--><path d="M859.5896,430.4422 C881.3292,446.7469 906.9879,465.9909 926.7914,480.8436 " fill="none" id="MovieDatabaseManager-MovieDetailData" style="stroke: #A80036; stroke-width: 1.0;"/><ellipse cx="853.7164" cy="426.0373" fill="#FFFFFF" rx="8" ry="8" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="860.1165" x2="847.3164" y1="430.8372" y2="421.2373"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="848.9165" x2="858.5164" y1="432.4373" y2="419.6372"/><!--link MovieData to MovieItem--><path d="M851.5678,532.4259 C874.7614,549.821 904.4893,572.117 926.7914,588.8436 " fill="none" id="MovieData-MovieItem" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="847.3164,529.2373,852.1165,537.8372,851.3165,532.2372,856.9164,531.4371,847.3164,529.2373" style="stroke: #A80036; stroke-width: 1.0;"/><!--link MovieDetailData to MovieItem--><path d="M959,534.3947 C959,551.4785 959,572.7416 959,588.8436 " fill="none" id="MovieDetailData-MovieItem" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="959,529.2373,955,538.2373,959,534.2373,963,538.2373,959,529.2373" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+skinparam classAttributeIconSize 0
+
+interface MovieDatabase {
+  +discoverMoviesNextState(User, DiscoverySortType, DiscoveryStatus?, handler)
+  +detailMovie(_ movieItem: MovieItem, _ user: User, _ completionHandler: @escaping (MovieItem) -> Void)
+}
+interface MovieBooking {
+  +bookMovie(_ user: User, _ movieItem: MovieItem) -> URL
+}
+interface User {
+  +region
+  +language
+}
+
+class MovieItem {
+}
+
+class DiscoveryStatus {
+  +totalPages: Int
+  +totalMovies: Int
+  +currentPage: Int
+}
+
+enum DiscoverySortType {
+  releaseDate
+}
+
+class MainApp << (S,#FF7700) Singleton >> {
+  +movieDiscoverProvider: MovieDatabase
+  +movieBookProvider: MovieBooking
+  +user: User
+  +focusMovie: MovieItem?
+
+  +discoverySort: DiscoverySortType
+  +discoveryStatus: DiscoveryStatus?
+  +discoverMovies: [MovieItem]
+}
+
+MainApp *- -> "1" User
+MainApp *- -> "1" MovieDatabase
+MainApp *- -> "1" MovieBooking
+MainApp *- -> "many" MovieItem
+MainApp *- -> "0..1" DiscoveryStatus
+MainApp *- -> "1" DiscoverySortType
+
+class MovieDatabaseManager
+class MovieData
+class MovieDetailData
+class BookingMovieManager
+class UserManager
+
+MovieDatabaseManager .up.|> MovieDatabase
+BookingMovieManager .up.|> MovieBooking
+UserManager .up.|> User
+MovieDatabaseManager +- - MovieData
+MovieDatabaseManager +- - MovieDetailData
+MovieData <- - MovieItem
+MovieDetailData <- - MovieItem
+@enduml
+
+PlantUML version 1.2019.02(Sat Mar 02 05:20:40 CST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_201-b09
+Operating System: Mac OS X
+OS Version: 10.14.3
+Default Encoding: UTF-8
+Language: zh
+Country: TW
+--></g></svg></p><h3 class="mume-header" id="the-relation-of-interface-implementation">the Relation of Interface Implementation</h3>
+
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="175px" preserveAspectRatio="none" style="width:752px;height:175px;" version="1.1" viewBox="0 0 752 175" width="752px" zoomAndPan="magnify"><defs><filter height="300%" id="f1qt7a8pwcwhyu" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--class DiscoverMovieControlling--><rect fill="#FEFECE" filter="url(#f1qt7a8pwcwhyu)" height="48" id="DiscoverMovieControlling" style="stroke: #A80036; stroke-width: 1.5;" width="175" x="6" y="116"/><ellipse cx="21" cy="132" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M17.4277,128.2651 L17.4277,126.1069 L24.8071,126.1069 L24.8071,128.2651 L22.3418,128.2651 L22.3418,136.3418 L24.8071,136.3418 L24.8071,138.5 L17.4277,138.5 L17.4277,136.3418 L19.8931,136.3418 L19.8931,128.2651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="143" x="35" y="136.5352">DiscoverMovieControlling</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="180" y1="148" y2="148"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="180" y1="156" y2="156"/><!--class MovieDetailControlling--><rect fill="#FEFECE" filter="url(#f1qt7a8pwcwhyu)" height="48" id="MovieDetailControlling" style="stroke: #A80036; stroke-width: 1.5;" width="159" x="216" y="116"/><ellipse cx="231" cy="132" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M227.4277,128.2651 L227.4277,126.1069 L234.8071,126.1069 L234.8071,128.2651 L232.3418,128.2651 L232.3418,136.3418 L234.8071,136.3418 L234.8071,138.5 L227.4277,138.5 L227.4277,136.3418 L229.8931,136.3418 L229.8931,128.2651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="127" x="245" y="136.5352">MovieDetailControlling</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="217" x2="374" y1="148" y2="148"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="217" x2="374" y1="156" y2="156"/><!--class MovieItem--><rect fill="#FEFECE" filter="url(#f1qt7a8pwcwhyu)" height="48" id="MovieItem" style="stroke: #A80036; stroke-width: 1.5;" width="90" x="526.5" y="8"/><ellipse cx="541.5" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M543.9731,30.1431 Q543.3921,30.4419 542.7529,30.5913 Q542.1138,30.7407 541.4082,30.7407 Q538.9014,30.7407 537.5815,29.0889 Q536.2617,27.437 536.2617,24.3159 Q536.2617,21.1865 537.5815,19.5347 Q538.9014,17.8828 541.4082,17.8828 Q542.1138,17.8828 542.7612,18.0322 Q543.4087,18.1816 543.9731,18.4805 L543.9731,21.2031 Q543.3423,20.6221 542.7488,20.3523 Q542.1553,20.0825 541.5244,20.0825 Q540.1797,20.0825 539.4949,21.1492 Q538.8101,22.2158 538.8101,24.3159 Q538.8101,26.4077 539.4949,27.4744 Q540.1797,28.541 541.5244,28.541 Q542.1553,28.541 542.7488,28.2712 Q543.3423,28.0015 543.9731,27.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="58" x="555.5" y="28.5352">MovieItem</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="527.5" x2="615.5" y1="40" y2="40"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="527.5" x2="615.5" y1="48" y2="48"/><!--class MovieDisplayDetail--><rect fill="#FEFECE" filter="url(#f1qt7a8pwcwhyu)" height="48" id="MovieDisplayDetail" style="stroke: #A80036; stroke-width: 1.5;" width="140" x="410.5" y="116"/><ellipse cx="425.5" cy="132" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M421.9277,128.2651 L421.9277,126.1069 L429.3071,126.1069 L429.3071,128.2651 L426.8418,128.2651 L426.8418,136.3418 L429.3071,136.3418 L429.3071,138.5 L421.9277,138.5 L421.9277,136.3418 L424.3931,136.3418 L424.3931,128.2651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="108" x="439.5" y="136.5352">MovieDisplayDetail</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="411.5" x2="549.5" y1="148" y2="148"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="411.5" x2="549.5" y1="156" y2="156"/><!--class MovieDisplayAbstract--><rect fill="#FEFECE" filter="url(#f1qt7a8pwcwhyu)" height="48" id="MovieDisplayAbstract" style="stroke: #A80036; stroke-width: 1.5;" width="155" x="586" y="116"/><ellipse cx="601" cy="132" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M597.4277,128.2651 L597.4277,126.1069 L604.8071,126.1069 L604.8071,128.2651 L602.3418,128.2651 L602.3418,136.3418 L604.8071,136.3418 L604.8071,138.5 L597.4277,138.5 L597.4277,136.3418 L599.8931,136.3418 L599.8931,128.2651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="123" x="615" y="136.5352">MovieDisplayAbstract</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="587" x2="740" y1="148" y2="148"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="587" x2="740" y1="156" y2="156"/><!--class MainApp--><rect fill="#FEFECE" filter="url(#f1qt7a8pwcwhyu)" height="48" id="MainApp" style="stroke: #A80036; stroke-width: 1.5;" width="83" x="153" y="8"/><ellipse cx="168" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M170.4731,30.1431 Q169.8921,30.4419 169.2529,30.5913 Q168.6138,30.7407 167.9082,30.7407 Q165.4014,30.7407 164.0815,29.0889 Q162.7617,27.437 162.7617,24.3159 Q162.7617,21.1865 164.0815,19.5347 Q165.4014,17.8828 167.9082,17.8828 Q168.6138,17.8828 169.2612,18.0322 Q169.9087,18.1816 170.4731,18.4805 L170.4731,21.2031 Q169.8423,20.6221 169.2488,20.3523 Q168.6553,20.0825 168.0244,20.0825 Q166.6797,20.0825 165.9949,21.1492 Q165.3101,22.2158 165.3101,24.3159 Q165.3101,26.4077 165.9949,27.4744 Q166.6797,28.541 168.0244,28.541 Q168.6553,28.541 169.2488,28.2712 Q169.8423,28.0015 170.4731,27.4204 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="51" x="182" y="28.5352">MainApp</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="154" x2="235" y1="40" y2="40"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="154" x2="235" y1="48" y2="48"/><!--link MainApp to DiscoverMovieControlling--><path d="M171.8336,56.2373 C159.4882,69.4384 143.9153,86.0906 129.913,101.0634 " fill="none" id="MainApp-DiscoverMovieControlling" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="134.8642,106.0173,116.0907,115.8436,124.6389,96.4547,134.8642,106.0173" style="stroke: #A80036; stroke-width: 1.0;"/><!--link MainApp to MovieDetailControlling--><path d="M217.1664,56.2373 C229.5118,69.4384 245.0847,86.0906 259.087,101.0634 " fill="none" id="MainApp-MovieDetailControlling" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="264.3611,96.4547,272.9093,115.8436,254.1358,106.0173,264.3611,96.4547" style="stroke: #A80036; stroke-width: 1.0;"/><!--link MovieItem to MovieDisplayDetail--><path d="M551.0778,56.2373 C540.1889,69.1605 526.5132,85.391 514.1064,100.1155 " fill="none" id="MovieItem-MovieDisplayDetail" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="519.0942,105.0595,500.854,115.8436,508.388,96.0385,519.0942,105.0595" style="stroke: #A80036; stroke-width: 1.0;"/><!--link MovieItem to MovieDisplayAbstract--><path d="M592.1466,56.2373 C603.2736,69.2994 617.2788,85.7404 629.9285,100.59 " fill="none" id="MovieItem-MovieDisplayAbstract" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="635.2817,96.0794,642.9223,115.8436,624.6242,105.158,635.2817,96.0794" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+skinparam classAttributeIconSize 0
+
+interface DiscoverMovieControlling
+interface MovieDetailControlling
+class MovieItem
+interface MovieDisplayDetail
+interface MovieDisplayAbstract
+
+MainApp ..|> DiscoverMovieControlling
+MainApp ..|> MovieDetailControlling
+
+MovieItem ..|> MovieDisplayDetail
+MovieItem ..|> MovieDisplayAbstract
+@enduml
+
+PlantUML version 1.2019.02(Sat Mar 02 05:20:40 CST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_201-b09
+Operating System: Mac OS X
+OS Version: 10.14.3
+Default Encoding: UTF-8
+Language: zh
+Country: TW
+--></g></svg></p><h3 class="mume-header" id="system-provider">System Provider</h3>
+
+<p>in order to mock the system call in unit test, use system calls by SystemUtils interface</p>
+<p><!--?xml version="1.0" encoding="UTF-8" standalone="no"?--><svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" contentscripttype="application/ecmascript" contentstyletype="text/css" height="233px" preserveAspectRatio="none" style="width:576px;height:233px;" version="1.1" viewBox="0 0 576 233" width="576px" zoomAndPan="magnify"><defs><filter height="300%" id="f1uvr01n46aveo" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--class SystemProvider--><rect fill="#FEFECE" filter="url(#f1uvr01n46aveo)" height="54.2656" id="SystemProvider" style="stroke: #A80036; stroke-width: 1.5;" width="120" x="132.5" y="168"/><ellipse cx="147.5" cy="187.1328" fill="#FF7700" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M146.7334,188.1958 Q144.8823,187.4902 144.2266,186.7141 Q143.5708,185.938 143.5708,184.6265 Q143.5708,182.9414 144.6499,181.9785 Q145.729,181.0156 147.6133,181.0156 Q148.4683,181.0156 149.3232,181.2107 Q150.1782,181.4058 151.0166,181.7876 L151.0166,184.1782 Q150.228,183.6221 149.4146,183.3315 Q148.6011,183.041 147.8042,183.041 Q146.916,183.041 146.4429,183.3979 Q145.9697,183.7549 145.9697,184.4189 Q145.9697,184.9336 146.3142,185.2698 Q146.6587,185.606 147.7544,186.0127 L148.8086,186.4111 Q150.3027,186.959 151.0083,187.8638 Q151.7139,188.7686 151.7139,190.1465 Q151.7139,192.0225 150.6057,192.948 Q149.4976,193.8735 147.2563,193.8735 Q146.335,193.8735 145.4094,193.6536 Q144.4839,193.4336 143.6206,193.002 L143.6206,190.4702 Q144.6001,191.1675 145.5173,191.5078 Q146.4346,191.8481 147.3311,191.8481 Q148.2358,191.8481 148.7339,191.4373 Q149.2319,191.0264 149.2319,190.2876 Q149.2319,189.7314 148.8999,189.3123 Q148.5679,188.8931 147.937,188.6523 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="63" x="174" y="184.6016">&#xAB;Singleton&#xBB;</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="88" x="161.5" y="198.7344">SystemProvider</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="133.5" x2="251.5" y1="206.2656" y2="206.2656"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="133.5" x2="251.5" y1="214.2656" y2="214.2656"/><!--class SystemUtils--><rect fill="#FEFECE" filter="url(#f1uvr01n46aveo)" height="99.8203" id="SystemUtils" style="stroke: #A80036; stroke-width: 1.5;" width="373" x="6" y="8"/><ellipse cx="156.25" cy="24" fill="#B4A7E5" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M152.6777,20.2651 L152.6777,18.1069 L160.0571,18.1069 L160.0571,20.2651 L157.5918,20.2651 L157.5918,28.3418 L160.0571,28.3418 L160.0571,30.5 L152.6777,30.5 L152.6777,28.3418 L155.1431,28.3418 L155.1431,20.2651 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="64" x="176.75" y="28.5352">SystemUtils</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="378" y1="40" y2="40"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="378" y1="48" y2="48"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="124" x="12" y="62.6348">+getRegion() -&gt; String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="139" x="12" y="75.5898">+getLanguage() -&gt; String</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="126" x="12" y="88.5449">+currentDate() -&gt; Date</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="361" x="12" y="101.5">+dispatchAfter(_ milliseconds: Int, _ handler: @escaping () -&gt; Void)</text><!--class SystemCapability--><rect fill="#FEFECE" filter="url(#f1uvr01n46aveo)" height="60.9551" id="SystemCapability" style="stroke: #A80036; stroke-width: 1.5;" width="151" x="414" y="27.5"/><ellipse cx="438.9" cy="43.5" fill="#A9DCDF" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M439.0133,39.0981 L437.8595,44.1699 L440.1754,44.1699 Z M437.5191,36.8569 L440.5157,36.8569 L443.8609,49.25 L441.4122,49.25 L440.6485,46.187 L437.3697,46.187 L436.6227,49.25 L434.1739,49.25 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="97" x="455.1" y="48.0352">SystemCapability</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="415" x2="564" y1="59.5" y2="59.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="139" x="420" y="74.1348">+systemUtils: SystemUtils</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="415" x2="564" y1="80.4551" y2="80.4551"/><!--link SystemUtils to SystemProvider--><path d="M192.5,128.5448 C192.5,142.5367 192.5,156.4148 192.5,167.8411 " fill="none" id="SystemUtils-SystemProvider" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="185.5001,128.2359,192.5,108.2358,199.5001,128.2358,185.5001,128.2359" style="stroke: #A80036; stroke-width: 1.0;"/><!--link SystemUtils to SystemCapability--><path d="M392.47,58 C395.1272,58 397.7844,58 400.4415,58 " fill="none" id="SystemUtils-SystemCapability" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#FFFFFF" points="413.7273,58,407.7273,54,401.7273,58,407.7273,62,413.7273,58" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="379.2852,58,388.2852,62,384.2852,58,388.2852,54,379.2852,58" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="384.2852" x2="392.2852" y1="58" y2="57.9999"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="386.7377" y="55.285">1</text><!--
+@startuml
+skinparam classAttributeIconSize 0
+
+class SystemProvider << (S,#FF7700) Singleton >>
+
+interface SystemUtils {
+  +getRegion() -> String
+  +getLanguage() -> String
+  +currentDate() -> Date
+  +dispatchAfter(_ milliseconds: Int, _ handler: @escaping () -> Void)
+}
+
+abstract SystemCapability {
+  +systemUtils: SystemUtils
+}
+
+SystemProvider .up.|> SystemUtils
+SystemCapability o-left-> "1" SystemUtils
+@enduml
+
+PlantUML version 1.2019.02(Sat Mar 02 05:20:40 CST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_201-b09
+Operating System: Mac OS X
+OS Version: 10.14.3
+Default Encoding: UTF-8
+Language: zh
+Country: TW
+--></g></svg></p>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
