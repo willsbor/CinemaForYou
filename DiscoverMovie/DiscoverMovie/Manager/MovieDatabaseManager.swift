@@ -148,7 +148,7 @@ class MovieDatabaseManager {
         
         guard var components = URLComponents(url: detailURL, resolvingAgainstBaseURL: false) else {
             DispatchQueue.global().async {
-//                completionHandler(.failed(Errors.createURLComponentsFailed))
+                completionHandler(.failed(Errors.createURLComponentsFailed))
             }
             return
         }
