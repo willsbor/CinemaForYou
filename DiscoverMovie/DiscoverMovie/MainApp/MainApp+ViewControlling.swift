@@ -78,7 +78,6 @@ extension MainApp: DiscoverMovieControlling, MovieDetailControlling {
     
     func getBookingFocusMovieURL() -> URL {
         guard let focusMovie = focusMovie else {
-            // TODO: need focus or should throw error or nil...
             preconditionFailure()
         }
         
