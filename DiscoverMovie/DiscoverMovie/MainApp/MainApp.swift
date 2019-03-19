@@ -19,7 +19,7 @@ class MovieItem {
     }
 }
 
-struct DiscoveryStatus {
+struct DiscoveryStatus: Equatable {
     let totalPages: Int
     let totalMovies: Int
     let currentPage: Int
@@ -179,10 +179,10 @@ extension DiscoveryStatus {
     }
     
     var isFinial: Bool {
-        return totalPages == currentPage
+        return totalPages <= currentPage
     }
     
-    static let zero = DiscoveryStatus(totalPages: 0, totalMovies: 0, currentPage: 0)
+    static let unknown = DiscoveryStatus(totalPages: 0, totalMovies: -1, currentPage: 0)
 }
 
 extension String {

@@ -20,11 +20,7 @@ extension MainApp: DiscoverMovieControlling, MovieDetailControlling {
     
     func currentMovies() -> [MovieResultType] {
         var results = discoverMovies.map { MovieResultType.normal($0) }
-        if discoveryStatus?.isFinial ?? false {
-            results.append(.finial)
-        } else {
-            results.append(.elseLeft)
-        }
+        results.append(tailCellType())
         return results
     }
     
@@ -32,7 +28,7 @@ extension MainApp: DiscoverMovieControlling, MovieDetailControlling {
         if index < discoverMovies.count {
             return .normal(discoverMovies[index])
         } else {
-            return .elseLeft
+            return tailCellType()
         }
     }
     
@@ -50,7 +46,15 @@ extension MainApp: DiscoverMovieControlling, MovieDetailControlling {
             
             self.discoverDelegate?.begin()
             
+            defer {
+                self.discoverDelegate?.end()
+            }
+            
             self.discoverDelegate?.movieDataDidChange(indexes: [oldItems.count], type: .replace)
+            
+            guard newItems.count > 0 else {
+                return
+            }
             
             var insertIndexes: [Int] = []
             
@@ -65,8 +69,6 @@ extension MainApp: DiscoverMovieControlling, MovieDetailControlling {
             insertIndexes.append(oldItems.count + newItems.count) //< .finial or .elseLeft
             
             self.discoverDelegate?.movieDataDidChange(indexes: insertIndexes, type: .insert)
-            
-            self.discoverDelegate?.end()
         }
     }
     
@@ -81,6 +83,14 @@ extension MainApp: DiscoverMovieControlling, MovieDetailControlling {
         }
         
         return movieBookProvider.bookMovie(currentUser, focusMovie)
+    }
+    
+    private func tailCellType() -> MovieResultType {
+        if discoveryStatus?.isFinial ?? false {
+            return .finial
+        } else {
+            return .elseLeft
+        }
     }
 }
 

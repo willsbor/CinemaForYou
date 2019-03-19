@@ -31,9 +31,9 @@ extension MainApp {
 extension MovieDatabaseManager: MovieDatabase {
     func discoverMoviesNextPage(_ user: User, _ type: DiscoverySortType, _ status: DiscoveryStatus?, _ completionHandler: @escaping (DiscoveryStatus, [MovieItem]) -> Void) {
 
-        let currentStatus = status ?? DiscoveryStatus.zero
+        let currentStatus = status ?? DiscoveryStatus.unknown
         
-        discoverMovies(type.toMovieDatabaseManagerSortType, currentStatus.currentPage + 1, user.language, user.region) { (result) in
+        discoverMovies(type.toMovieDatabaseManagerSortType, currentStatus.nextPage, user.language, user.region) { (result) in
             switch result {
             case .success(let infos):
                 let successStatus = DiscoveryStatus(totalPages: infos.totalPages, totalMovies: infos.totalResults, currentPage: infos.page)
