@@ -16,8 +16,6 @@ protocol MovieDisplayAbstract {
     var releaseDate: String { get }
 }
 
-
-
 protocol DiscoverMovieControlling: class {
     var isFinal: Bool { get }
     func currentMovies() -> [MovieDisplayAbstract]

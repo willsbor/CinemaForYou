@@ -25,18 +25,18 @@ class DiscoverMovieTableViewController {
 }
 
 interface DiscoverMovieControlling {
-  +discoverDelegate: MoviesChangeDelegate?
-  +currentMovies() -> [MovieResultType]
-  +getMovie(by index: Int) -> MovieResultType
+  +isFinal: Bool
+  +currentMovies() -> [MovieDisplayAbstract]
+  +getMovie(by index: Int) -> MovieDisplayAbstract?
   +refreshMovies(_ completionHandler: @escaping () -> Void)
-  +requestMoreMovies()
-  +focusMovie(_ movieAbstract: MovieDisplayAbstract)
+  +requestMoreMovies(_ completionHandler: @escaping (Int, Int) -> Void)
+  +focusMovie(_ index: Int)
 }
 
-enum MovieResultType {
+enum CellType {
   normal{MovieDisplayAbstract}
   elseLeft
-  finial
+  final
 }
 
 interface MovieDisplayAbstract {
@@ -45,18 +45,6 @@ interface MovieDisplayAbstract {
   +title: String
   +popularity: Double
   +releaseDate
-}
-
-enum MovieChangeType {
-    insert
-    replace
-    delete
-}
-
-interface MoviesChangeDelegate {
-  +begin()
-  +movieDataDidChange(indexes: [Int], type: MovieChangeType)
-  +end()
 }
 
 class MovieDetailViewController {
@@ -85,12 +73,9 @@ interface MovieDisplayDetail {
 DiscoverMovieTableViewController .right.> MovieDetailViewController
 
 DiscoverMovieTableViewController *--> "1" DiscoverMovieControlling
-DiscoverMovieControlling .left.> MovieResultType
-MovieResultType --> MovieDisplayAbstract
-DiscoverMovieControlling --> "1" MoviesChangeDelegate : delegate
-MoviesChangeDelegate ..> MovieChangeType
-
-DiscoverMovieTableViewController ..|> MoviesChangeDelegate
+DiscoverMovieControlling .left.> MovieDisplayAbstract
+DiscoverMovieTableViewController +-left-> CellType
+CellType --> MovieDisplayAbstract
 
 MovieDetailViewController *--> "1" MovieDetailControlling
 MovieDetailControlling .right.> MovieDisplayDetail
