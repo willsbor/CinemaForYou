@@ -54,8 +54,6 @@ class MainApp {
     private(set) var discoveryStatus: DiscoveryStatus?
     private(set) var discoverMovies: [MovieItem]
     
-    var movieDiscoverMoreDataDelegate: Any?
-    
     private let lockQueue = DispatchQueue(label: "com.xxx.main_app.lock")
     private var requestingDiscoverMovies = false
     private var dateFormatter = DateFormatter()
@@ -178,7 +176,7 @@ extension DiscoveryStatus {
         return currentPage + 1
     }
     
-    var isFinial: Bool {
+    var isFinal: Bool {
         return totalPages <= currentPage
     }
     

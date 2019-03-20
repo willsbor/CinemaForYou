@@ -9,26 +9,19 @@
 import Foundation
 
 extension MainApp: DiscoverMovieControlling, MovieDetailControlling {
-    var discoverDelegate: MoviesChangeDelegate? {
-        get {
-            return movieDiscoverMoreDataDelegate as? MoviesChangeDelegate
-        }
-        set {
-            movieDiscoverMoreDataDelegate = newValue
-        }
+    var isFinal: Bool {
+        return discoveryStatus?.isFinal ?? false
     }
     
-    func currentMovies() -> [MovieResultType] {
-        var results = discoverMovies.map { MovieResultType.normal($0) }
-        results.append(tailCellType())
-        return results
+    func currentMovies() -> [MovieDisplayAbstract] {
+        return discoverMovies
     }
     
-    func getMovie(by index: Int) -> MovieResultType {
+    func getMovie(by index: Int) -> MovieDisplayAbstract? {
         if index < discoverMovies.count {
-            return .normal(discoverMovies[index])
+            return discoverMovies[index]
         } else {
-            return tailCellType()
+            return nil
         }
     }
     
@@ -38,37 +31,13 @@ extension MainApp: DiscoverMovieControlling, MovieDetailControlling {
         }
     }
     
-    func requestMoreMovies() {
+    func requestMoreMovies(_ completionHandler: @escaping (Int, Int) -> Void) {
         requestDiscoverMoviesNextPage { (sendRequest, oldItems, newItems) in
             guard sendRequest else {
                 return
             }
             
-            self.discoverDelegate?.begin()
-            
-            defer {
-                self.discoverDelegate?.end()
-            }
-            
-            self.discoverDelegate?.movieDataDidChange(indexes: [oldItems.count], type: .replace)
-            
-            guard newItems.count > 0 else {
-                return
-            }
-            
-            var insertIndexes: [Int] = []
-            
-            let start = oldItems.count + 1
-            let end = oldItems.count + newItems.count - 1
-            if start < end {
-                for i in start...end {
-                    insertIndexes.append(i)
-                }
-            }
-            
-            insertIndexes.append(oldItems.count + newItems.count) //< .finial or .elseLeft
-            
-            self.discoverDelegate?.movieDataDidChange(indexes: insertIndexes, type: .insert)
+            completionHandler(oldItems.count, newItems.count)
         }
     }
     
@@ -82,14 +51,6 @@ extension MainApp: DiscoverMovieControlling, MovieDetailControlling {
         }
         
         return movieBookProvider.bookMovie(currentUser, focusMovie)
-    }
-    
-    private func tailCellType() -> MovieResultType {
-        if discoveryStatus?.isFinial ?? false {
-            return .finial
-        } else {
-            return .elseLeft
-        }
     }
 }
 

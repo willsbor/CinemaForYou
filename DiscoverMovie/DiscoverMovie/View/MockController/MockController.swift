@@ -62,14 +62,14 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
     
     var focusMovie: MovieItem?
     
-    var isFinial: Bool {
+    var isFinal: Bool {
         return false
     }
     
     func currentMovies() -> [MovieResultType] {
         var results = movies.map { MovieResultType.normal($0) }
-        if isFinial {
-            results.append(.finial)
+        if isFinal {
+            results.append(.final)
         } else {
             results.append(.elseLeft)
         }
@@ -132,7 +132,7 @@ class MockController: DiscoverMovieControlling, SystemCapability, MovieDetailCon
                 }
             }
             
-            insertIndexes.append(oldItems.count + newItems.count) //< .finial or .elseLeft
+            insertIndexes.append(oldItems.count + newItems.count) //< .final or .elseLeft
             
             self.discoverDelegate?.movieDataDidChange(indexes: insertIndexes, type: .insert)
             

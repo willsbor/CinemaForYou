@@ -16,41 +16,53 @@ protocol MovieDisplayAbstract {
     var releaseDate: String { get }
 }
 
-enum MovieResultType {
-    case normal(MovieDisplayAbstract)
-    case elseLeft
-    case finial
-}
 
-enum MovieChangeType {
-    case insert
-    case replace
-    case delete
-}
-
-protocol MoviesChangeDelegate {
-    func begin()
-    func movieDataDidChange(indexes: [Int], type: MovieChangeType)
-    func end()
-}
 
 protocol DiscoverMovieControlling: class {
-    var discoverDelegate: MoviesChangeDelegate? { get set }
-    func currentMovies() -> [MovieResultType]
-    func getMovie(by index: Int) -> MovieResultType
+    var isFinal: Bool { get }
+    func currentMovies() -> [MovieDisplayAbstract]
+    func getMovie(by index: Int) -> MovieDisplayAbstract?
     func refreshMovies(_ completionHandler: @escaping () -> Void)
-    func requestMoreMovies()
+    func requestMoreMovies(_ completionHandler: @escaping (_ originalItemsCount: Int, _ appendedMovieItemsCount: Int) -> Void)
     func focusMovie(_ index: Int)
+}
+
+extension DiscoverMovieControlling {
+    func currentMovieCellTypes() -> [DiscoverMovieTableViewController.CellType] {
+        var results: [DiscoverMovieTableViewController.CellType] = currentMovies().map { .normal($0) }
+        results.append(tailCellType())
+        return results
+    }
+    
+    func getMovieCellType(by index: Int) -> DiscoverMovieTableViewController.CellType {
+        if let movie = getMovie(by: index) {
+            return .normal(movie)
+        } else {
+            return tailCellType()
+        }
+    }
+    
+    private func tailCellType() -> DiscoverMovieTableViewController.CellType {
+        if isFinal {
+            return .final
+        } else {
+            return .elseLeft
+        }
+    }
 }
 
 class DiscoverMovieTableViewController: UITableViewController {
 
+    enum CellType {
+        case normal(MovieDisplayAbstract)
+        case elseLeft
+        case final
+    }
+    
     lazy var controller: DiscoverMovieControlling = MainApp.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        controller.discoverDelegate = self
         
         self.title = "Discovery Movies"
         
@@ -64,12 +76,12 @@ class DiscoverMovieTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller.currentMovies().count
+        return controller.currentMovieCellTypes().count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let movieType = controller.getMovie(by: indexPath.row)
+        let movieType = controller.getMovieCellType(by: indexPath.row)
         
         switch movieType {
         case .normal(let info):
@@ -90,45 +102,49 @@ class DiscoverMovieTableViewController: UITableViewController {
         case .elseLeft:
             let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
             return cell
-        case .finial:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "finialCell", for: indexPath)
+        case .final:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "finalCell", for: indexPath)
             return cell
         }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let movieType = controller.getMovie(by: indexPath.row)
+        let movieType = controller.getMovieCellType(by: indexPath.row)
         
         switch movieType {
         case .normal:
             controller.focusMovie(indexPath.row)
             performSegue(withIdentifier: "showMovieDetail", sender: nil)
             
-        case .elseLeft, .finial:
+        case .elseLeft, .final:
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        let movieType = controller.getMovie(by: indexPath.row)
+        let movieType = controller.getMovieCellType(by: indexPath.row)
         
         if case .elseLeft = movieType {
             (cell as! MovieLoadingCell).indicatorView.startAnimating()
             print("controller.requestMoreMovies()")
-            controller.requestMoreMovies()
+            controller.requestMoreMovies { (originalItemsCount, appendedItemsCount) in
+                DispatchQueue.main.async {
+                    self.displayAppendedItems(originalItemsCount, appendedItemsCount)
+                }
+            }
             
         }
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        let movieType = controller.getMovie(by: indexPath.row)
+        let movieType = controller.getMovieCellType(by: indexPath.row)
         switch movieType {
         case .normal:
             return 180.0
         case .elseLeft:
             return 44.0
-        case .finial:
+        case .final:
             return 44.0
         }
     }
@@ -167,32 +183,21 @@ class DiscoverMovieTableViewController: UITableViewController {
             }
         }
     }
-}
-
-extension DiscoverMovieTableViewController: MoviesChangeDelegate {
-    func begin() {
-        DispatchQueue.main.async {
-            self.tableView.beginUpdates()
-        }
-    }
     
-    func movieDataDidChange(indexes: [Int], type: MovieChangeType) {
-        DispatchQueue.main.async {
-            switch type {
-            case .insert:
-                self.tableView.insertRows(at: indexes.map { IndexPath(row: $0, section: 0) }, with: .automatic)
-            case .replace:
-                self.tableView.reloadRows(at: indexes.map { IndexPath(row: $0, section: 0) }, with: .automatic)
-            case .delete:
-                self.tableView.deleteRows(at: indexes.map { IndexPath(row: $0, section: 0) }, with: .automatic)
-            }
-        }
-        print("\(type): \(indexes)")
-    }
+    // MARK: -
     
-    func end() {
-        DispatchQueue.main.async {
-            self.tableView.endUpdates()
+    private func displayAppendedItems(_ originalItemsCount: Int, _ appendedMovieItemsCount: Int) {
+        tableView.beginUpdates()
+        
+        let tailCellIndex = originalItemsCount
+        
+        tableView.reloadRows(at: [IndexPath(row: tailCellIndex, section: 0)], with: .automatic)
+        
+        if appendedMovieItemsCount > 0 {
+            let insertItems = [Int](1...appendedMovieItemsCount).map { IndexPath(row: $0 + tailCellIndex, section: 0) }
+            tableView.insertRows(at: insertItems, with: .automatic)
         }
+        
+        tableView.endUpdates()
     }
 }
