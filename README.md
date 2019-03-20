@@ -10,6 +10,8 @@
 
 ## Class Diagram
 
+It is written by [plantuml](http://plantuml.com/zh/). you can see the class diagram by [PNG](https://github.com/willsbor/CinemaForYou/blob/master/README.png) or clone this repo and open local html(README.html)
+
 ### View / ViewController
 prepare two ViewController
 1. DiscoverMovieTableViewController
