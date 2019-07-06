@@ -1,5 +1,7 @@
 # CinemaForYou
 
+test!
+
 ## System Require
 - Xcode 10.1
 
